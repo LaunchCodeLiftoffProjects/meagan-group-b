@@ -12,5 +12,4 @@ public class HelloController {
     public String hello() {
         return "Hello, World!";
     }
-    public String helloZach() { return "Hello, World!"; }
 }
