@@ -1,19 +1,16 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.models;
 
-import java.util.Objects;
+import javax.persistence.Entity;
 
-public class Restaurant {
-
-    private int id;
-
-    private String name;
+@Entity
+public class Restaurant extends Cuisine{
 
     private String address;
 
     private String linkForRestaurant;
 
-    public Restaurant(String aName, String anAddress, String aLinkForRestaurant) {
-        this.name = aName;
+    public Restaurant(String anAddress, String aLinkForRestaurant) {
+        super();
         this.address = anAddress;
         this.linkForRestaurant = aLinkForRestaurant;
     }
@@ -21,12 +18,6 @@ public class Restaurant {
     public Restaurant() { }
 
     // Getters and Setters //
-    public int getId() { return id; }
-
-    public String getName() { return name; }
-
-    public void setName(String name) { this.name = name; }
-
     public String getAddress() { return address; }
 
     public void setAddress(String address) { this.address = address; }
@@ -35,22 +26,5 @@ public class Restaurant {
 
     public void setLinkForRestaurant(String linkForRestaurant) { this.linkForRestaurant = linkForRestaurant; }
 
-    //Validation//
-    @Override
-    public String toString() {
-        return name;
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Restaurant restaurant = (Restaurant) o;
-        return id == restaurant.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
