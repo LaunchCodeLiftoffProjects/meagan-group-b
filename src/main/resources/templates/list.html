@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>View Restaurants by Category</title>
 </head>
 <body>
  <table>
@@ -10,6 +10,11 @@
          <th>All</th>
          <th>Cuisine</th>
      </tr>
+     <td>
+         <li>
+             <a th:href="@{/list/restaurants(column='All',value='View All')}">View All</a>
+         </li>
+     </td>
  </table>
 
 </body>
