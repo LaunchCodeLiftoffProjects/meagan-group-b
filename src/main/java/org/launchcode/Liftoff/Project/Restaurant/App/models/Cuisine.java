@@ -1,16 +1,35 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.models;
 
-public class Cuisine extends Restaurant {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Objects;
 
+@Entity
+public class Cuisine extends AbstractEntity{
+
+
+    @NotNull
+    @Size(min=3, max=150)
     private String cuisine;
 
     public Cuisine(String aCuisine) {
+        super();
         this.cuisine = aCuisine;
     }
 
     public Cuisine() { }
 
-    public String getCuisine() { return cuisine; }
+    // Getters and Setters //
 
-    public void setCuisine(String cuisine) { this.cuisine = cuisine; }
+    public String getCuisine() {
+        return cuisine;
+    }
+
+    public void setCuisine(String cuisine) {
+        this.cuisine = cuisine;
+    }
+
 }

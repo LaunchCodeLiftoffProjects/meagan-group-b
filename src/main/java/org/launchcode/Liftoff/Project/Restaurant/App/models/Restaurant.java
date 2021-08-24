@@ -1,11 +1,14 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.models;
 
-import java.util.Objects;
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-public class Restaurant {
+@Entity
+public class Restaurant extends AbstractEntity{
 
-    private int id;
-
+    @NotNull
+    @Size(min=3, max=150)
     private String name;
 
     private String address;
@@ -13,6 +16,7 @@ public class Restaurant {
     private String linkForRestaurant;
 
     public Restaurant(String aName, String anAddress, String aLinkForRestaurant) {
+        super();
         this.name = aName;
         this.address = anAddress;
         this.linkForRestaurant = aLinkForRestaurant;
@@ -21,11 +25,14 @@ public class Restaurant {
     public Restaurant() { }
 
     // Getters and Setters //
-    public int getId() { return id; }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getAddress() { return address; }
 
@@ -35,22 +42,5 @@ public class Restaurant {
 
     public void setLinkForRestaurant(String linkForRestaurant) { this.linkForRestaurant = linkForRestaurant; }
 
-    //Validation//
-    @Override
-    public String toString() {
-        return name;
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Restaurant restaurant = (Restaurant) o;
-        return id == restaurant.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
