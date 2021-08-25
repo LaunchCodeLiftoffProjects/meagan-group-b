@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface CuisineRepository extends CrudRepository<Cuisine, String> {
+public interface CuisineRepository extends CrudRepository<Cuisine, Integer> {
 }
 
