@@ -49,9 +49,9 @@ public class CuisineController {
     @GetMapping("view-cuisine/{cuisineId}")
     public String displayViewCuisine(Model model, @PathVariable int cuisineId) {
 
-        Optional optSkill = cuisineRepository.findById(cuisineId);
-        if (optSkill.isPresent()) {
-            Cuisine cuisine = (Cuisine) optSkill.get();
+        Optional optCuisine = cuisineRepository.findById(cuisineId);
+        if (optCuisine.isPresent()) {
+            Cuisine cuisine = (Cuisine) optCuisine.get();
             model.addAttribute("cuisine", cuisine);
             return "view-cuisine";
         } else {

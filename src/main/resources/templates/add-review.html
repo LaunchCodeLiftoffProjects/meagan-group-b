@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Review</title>
+</head>
+<body>
+
+<div class="form-group">
+    <label th:for="review">Review</label>
+    <input class="form-control" th:field="${review.comment}" />
+    <span th:errors="${review.comment}" class="error"></span>
+</div>
+
+<input type="submit" value="Add Review" />
+</body>
+</html>

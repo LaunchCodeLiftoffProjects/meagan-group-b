@@ -20,8 +20,8 @@ public class RestaurantController {
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("title", "Restaurants");
-        model.addAttribute("restaurant", restaurantRepository.findAll());
+        model.addAttribute("title", "Add Restaurants");
+        model.addAttribute("restaurants", restaurantRepository.findAll());
         return "index";
     }
 

@@ -6,17 +6,11 @@
 </head>
 <body>
 
-<p th:unless="${restaurants} and ${restaurants.size()}">no jobs!</p>
-
-<div class="container body-content">
-  <h2>Restaurants</h2>
-  <ul>
-    <li th:each="restaurant : ${restaurants}">
-      <a th:href="@{'/employers/view/' + ${employer.id}}" th:text="${employer.name}"></a>
-    </li>
-  </ul>
+<ul>
   <a th:href="@{'/restaurant/add'}">Add Restaurant</a>
-
+    <a th:href="@{'/review/add'}">Add Review</a>
+    <a th:href="@{'/cuisine/add'}">Add Cuisine</a>
+</ul>
 </div>
 
 </div>
