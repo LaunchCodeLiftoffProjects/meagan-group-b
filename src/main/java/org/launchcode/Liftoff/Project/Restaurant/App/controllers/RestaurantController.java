@@ -12,32 +12,33 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("restaurant")
 public class RestaurantController {
 
-/*    @Autowired
+    @Autowired
     private RestaurantRepository restaurantRepository;
 
     @RequestMapping("")
     public String index(Model model) {
         model.addAttribute("title", "Restaurants");
-        model.addAttribute("skills", restaurantRepository.findAll());
-        return "list-restaurants";
+        model.addAttribute("restaurant", restaurantRepository.findAll());
+        return "index";
     }
 
-    @GetMapping("add-restaurants")
+    @GetMapping("add")
     public String displayAddRestaurantForm(Model model) {
         model.addAttribute("title", "Add Restaurant");
         model.addAttribute(new Restaurant());
-        return "add-restaurants";
+        return "add";
     }
 
-    @PostMapping("add-restaurants")
+    @PostMapping("add")
     public String processAddRestaurantForm(@ModelAttribute @Valid Restaurant newRestaurant,
                                            Errors errors, Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Restaurant");
-            return "add-restaurant";
+            return "add";
         }
 
         restaurantRepository.save(newRestaurant);
@@ -52,9 +53,9 @@ public class RestaurantController {
         if (optRestaurant.isPresent()) {
             Restaurant restaurant = (Restaurant) optRestaurant.get();
             model.addAttribute("restaurant", restaurant);
-            return "view-restaurants";
+            return "view-restaurant";
         } else {
             return "redirect:../";
         }
-    }*/
+    }
 }

@@ -12,26 +12,27 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("cuisine")
 public class CuisineController {
 
-/*    @Autowired
+    @Autowired
     private CuisineRepository cuisineRepository;
 
     @RequestMapping("")
     public String index(Model model) {
         model.addAttribute("title", "skills");
         model.addAttribute("skills", cuisineRepository.findAll());
-        return "list-cuisine";
+        return "index";
     }
 
-    @GetMapping("add-cuisine")
+    @GetMapping("add")
     public String displayAddCuisineForm(Model model) {
         model.addAttribute("title", "Add Cuisine");
         model.addAttribute(new Cuisine());
         return "add-cuisine";
     }
 
-    @PostMapping("add-cuisine")
+    @PostMapping("add")
     public String processAddCuisineForm(@ModelAttribute @Valid Cuisine newCuisine,
                                       Errors errors, Model model) {
 
@@ -56,5 +57,5 @@ public class CuisineController {
         } else {
             return "redirect:../";
         }
-    }*/
+    }
 }
