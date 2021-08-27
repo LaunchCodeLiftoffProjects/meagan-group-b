@@ -14,13 +14,13 @@ import java.util.Optional;
 @Controller
 public class RestaurantController {
 
-/*    @Autowired
+    @Autowired
     private RestaurantRepository restaurantRepository;
 
     @RequestMapping("")
     public String index(Model model) {
         model.addAttribute("title", "Restaurants");
-        model.addAttribute("skills", restaurantRepository.findAll());
+        model.addAttribute("restaurants", restaurantRepository.findAll());
         return "list-restaurants";
     }
 
@@ -56,5 +56,5 @@ public class RestaurantController {
         } else {
             return "redirect:../";
         }
-    }*/
+    }
 }

@@ -1,27 +1,28 @@
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title>List of Restaurants</title>
-</head>
+
+<head th:replace="fragments :: head"></head>
+
 <body>
-<h1>View All Restaurants</h1>
-<table>
-    <tr th:each="restaurant : ${restaurants}">
-        <td>
-            <p>
-                Restaurant Name:
-            </p>
-            <p>
-                Address:
-            </p>
-            <p>
-                Cuisine:
-            </p>
-        </td>
-    </tr>
-</table>
+    <div th:replace="fragments :: page-header"></div>
+
+    <div class="body-content">
+        <h2 class="centered">View All Restaurants</h2>
+    </div>
+
+    <table class="centeredTable">
+        <tr th:each="restaurant : ${restaurants}">
+            <td>
+                <h3 th:text="${restaurant.name}">
+                    <a th:href="@{'/view/' + ${restaurant.name}}"></a>
+                </h3>
+
+                <p th:text="${'Address: ' + restaurant.address}"</p>
+                <p th:text="${'Cuisine: ' + restaurant.cuisine}"</p>
+            </td>
+        </tr>
+    </table>
 
 </body>
 </html>
