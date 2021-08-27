@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Restaurant</title>
+</head>
+<body class="container">
+
+<h2>Add Restaurant</h2>
+
+<form method="post">
+
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="${restaurant.name}"/>
+        <span th:errors="${restaurant.name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="address">Address</label>
+        <input class="form-control" th:field="${restaurant.address}"/>
+        <span th:errors="${restaurant.address}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="phone">Phone</label>
+        <input class="form-control" th:field="${restaurant.phone}"/>
+        <span th:errors="${restaurant.phone}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="hoursOfOperation">Hours of Operation</label>
+            <select></select>
+            <select></select>
+    </div>
+
+    <div class="form-group">
+        <label th:for="cuisine">Cuisine</label>
+            <select name="cuisineId">
+                <option th:each="cuisine : ${cuisines}"
+                        th:text="${restaurant.cuisine}"></option>
+            </select>
+    </div>
+
+    <div class="form-group">
+        <label th:for="linkForRestaurant">Link</label>
+        <input class="form-control" th:field="${restaurant.linkForRestaurant}"/>
+        <span th:errors="${restaurant.linkForRestaurant}" class="error"></span>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Add Restaurant">
+
+</form>
+
+</body>
+</html>
