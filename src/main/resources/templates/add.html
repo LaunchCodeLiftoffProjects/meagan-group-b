@@ -23,6 +23,26 @@
     </div>
 
     <div class="form-group">
+        <label th:for="city">City</label>
+        <input class="form-control" th:field="${restaurant.city}"/>
+        <span th:errors="${restaurant.city}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="address">State</label>
+        <input class="form-control" th:field="${restaurant.state}"/>
+<!--        <select></select>-->
+<!--        <select></select>-->
+        <span th:errors="${restaurant.state}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="address">ZIP Code</label>
+        <input class="form-control" th:field="${restaurant.zipcode}"/>
+        <span th:errors="${restaurant.zipcode}" class="error"></span>
+    </div>
+
+    <div class="form-group">
         <label th:for="phone">Phone</label>
         <input class="form-control" th:field="${restaurant.phone}"/>
         <span th:errors="${restaurant.phone}" class="error"></span>

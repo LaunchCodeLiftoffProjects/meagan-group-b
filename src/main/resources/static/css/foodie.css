@@ -7,6 +7,12 @@
     text-align: center;
 }
 
+.container {
+    margin: 30px auto;
+    border: 1px solid #e4e4e4;
+    width: 80%;
+}
+
 .body-content {
     margin-top: 50px;
 }

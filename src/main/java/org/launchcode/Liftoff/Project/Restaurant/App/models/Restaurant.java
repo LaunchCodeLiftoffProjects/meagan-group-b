@@ -15,21 +15,36 @@ public class Restaurant extends AbstractEntity{
     @Size(min=1, max=150)
     private String address;
 
+    @NotNull
+    @Size(min=1, max=50)
+    private String city;
+
+    @NotNull
+    @Size(min=1, max=50)
+    private String state;
+
+    @NotNull
+    @Size(min=5, max=10)
+    private String zipcode;
+
     @Size(min=1, max=11)
     private String phone;
 
     private String hoursOfOperation;
     private String linkForRestaurant;
 
-    @NotNull
-    @Size(min=1, max=150)
+//    @NotNull
+//    @Size(min=1, max=150)
     private String cuisine;
 
-    public Restaurant(String aName, String anAddress, String aPhone, String aHoursOfOperation, String aLinkForRestaurant,
+    public Restaurant(String aName, String anAddress, String aCity, String aState, String aZipcode, String aPhone, String aHoursOfOperation, String aLinkForRestaurant,
                       String aCuisine) {
         super();
         this.name = aName;
         this.address = anAddress;
+        this.city = aCity;
+        this.state = aState;
+        this.zipcode = aZipcode;
         this.phone = aPhone;
         this.hoursOfOperation = aHoursOfOperation;
         this.linkForRestaurant = aLinkForRestaurant;
@@ -51,6 +66,30 @@ public class Restaurant extends AbstractEntity{
     public String getAddress() { return address; }
 
     public void setAddress(String address) { this.address = address; }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
 
     public String getPhone() { return phone; }
 
