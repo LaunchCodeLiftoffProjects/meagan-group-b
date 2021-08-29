@@ -33,8 +33,8 @@ public class Restaurant extends AbstractEntity{
     private String hoursOfOperation;
     private String linkForRestaurant;
 
-//    @NotNull
-//    @Size(min=1, max=150)
+    @NotNull
+    @Size(min=1, max=150)
     private String cuisine;
 
     public Restaurant(String aName, String anAddress, String aCity, String aState, String aZipcode, String aPhone, String aHoursOfOperation, String aLinkForRestaurant,
