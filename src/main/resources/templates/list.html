@@ -26,8 +26,8 @@
              </li>
          </td>
          <td>
-             <li>
-                 <a href="zipcode : ${zipcodes}"></a>
+             <li th:each="zipcode : ${zipcodes}">
+                 <a href="@{/list/restaurants(column=zipcode,value=${restaurant.zipcode})}" th:text="${restaurant.city} + ',' + ${State}"></a>
              </li>
          </td>
      </table>
