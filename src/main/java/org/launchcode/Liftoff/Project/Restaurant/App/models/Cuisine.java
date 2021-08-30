@@ -21,7 +21,6 @@ public class Cuisine extends AbstractEntity{
 
     // Getters and Setters //
 
-
     public String getName() {
         return name;
     }

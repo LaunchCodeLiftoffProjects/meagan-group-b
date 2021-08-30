@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title>View Restaurants by Category</title>
-</head>
+
+<head th:replace="fragments :: head"></head>
+
 <body>
- <table>
-     <tr>
-         <th>All</th>
-         <th>Cuisine</th>
-     </tr>
-     <td>
-         <li>
-             <a th:href="@{/list/restaurants(column='All',value='View All')}">View All</a>
-         </li>
-     </td>
- </table>
+    <div th:replace="fragments :: page-header"></div>
+    <div class="body-content">
+        <h2 class="centered">View Restaurants by Category</h2>
+    </div>
+
+     <table class="centeredTable">
+         <tr>
+             <th>All</th>
+             <th>Cuisine</th>
+             <th>Location</th>
+         </tr>
+         <td>
+             <li>
+                 <a th:href="@{/list/restaurants(column='All',value='View All')}">View All</a>
+             </li>
+         </td>
+         <td>
+             <li th:each="cuisine : ${cuisines}">
+                 <a th:href="@{/list/restaurants(column=cuisine,value=${cuisine.cuisine})}" th:text="${cuisine.cuisine}"></a>
+             </li>
+         </td>
+         <td>
+             <li th:each="zipcode : ${zipcodes}">
+                 <a href="@{/list/restaurants(column=zipcode,value=${restaurant.zipcode})}" th:text="${restaurant.city} + ',' + ${State}"></a>
+             </li>
+         </td>
+     </table>
 
 </body>
 </html>
