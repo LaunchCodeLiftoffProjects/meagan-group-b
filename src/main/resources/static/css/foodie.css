@@ -28,3 +28,8 @@ th {
 td {
     vertical-align: top;
 }
+
+form {
+    max-width: 600xp;
+    margin: auto;
+}

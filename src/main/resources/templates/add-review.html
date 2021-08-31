@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Review</title>
-</head>
+<head th:replace="fragments :: head"></head>
+
 <body>
+    <div th:replace="fragments :: page-header"></div>
 
-<div class="form-group">
-    <label th:for="review">Review</label>
-    <input class="form-control" th:field="${review.comment}" />
-    <span th:errors="${review.comment}" class="error"></span>
-</div>
+    <div class="body-content">
+        <h2 class="centered">Add Review</h2>
+    </div>
 
-<input type="submit" value="Add Review" />
+    <form method="post" style="max-width:600px;">
+        <div >
+            <label th:for="review">Review</label>
+            <input class="form-control" th:field="${review.comment}" />
+            <span th:errors="${review.comment}" class="error"></span>
+        </div>
+
+        <input type="submit" value="Add Review" />
+    </form>
+
 </body>
 </html>
