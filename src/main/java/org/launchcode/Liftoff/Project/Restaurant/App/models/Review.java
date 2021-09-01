@@ -10,13 +10,13 @@ public class Review extends AbstractEntity {
     private String comment;
 
     public Review(String aComment) {
+        super();
         this.comment = aComment;
     }
 
     public Review() { }
 
     // Getters and Setters //
-
 
     public String getComment() { return comment; }
 
