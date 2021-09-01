@@ -18,11 +18,9 @@
                   <a th:href="@{'/view/' + ${restaurant.name}}"></a>
                </h3>
                 <p th:text="${'Address: ' + restaurant.address}"></p>
-                <p th:text="${restaurant.city + ',' + restaurant.state + '  ' + restaurant.zipcode}"></p>
+                <p th:text="${'' + restaurant.city + ', ' + restaurant.state + '    ' + restaurant.zipcode}"></p>
                 <p th:text="${'Cuisine: ' + restaurant.cuisine}"></p>
             </td>
-        </tr>
-
         </tr>
     </table>
 

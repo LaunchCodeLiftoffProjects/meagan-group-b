@@ -1,5 +1,6 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.controllers;
 
+import org.launchcode.Liftoff.Project.Restaurant.App.data.CuisineRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.data.RestaurantRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,12 @@ public class RestaurantController {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
+    @Autowired
+    private CuisineRepository cuisineRepository;
+
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("title", "Add Restaurants");
-        model.addAttribute("restaurants", restaurantRepository.findAll());
+        model.addAttribute("title", "Add Restaurant");
         return "index";
     }
 
@@ -29,7 +32,8 @@ public class RestaurantController {
     public String displayAddRestaurantForm(Model model) {
         model.addAttribute("title", "Add Restaurant");
         model.addAttribute(new Restaurant());
-        return "add";
+        model.addAttribute("cuisine", cuisineRepository.findAll());
+        return "add-restaurant";
     }
 
     @PostMapping("add")
@@ -37,8 +41,7 @@ public class RestaurantController {
                                            Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Restaurant");
-            return "add";
+            return "add-restaurant";
         }
 
         restaurantRepository.save(newRestaurant);
