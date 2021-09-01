@@ -20,8 +20,8 @@ public class RestaurantController {
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("title", "Add Restaurants");
-        model.addAttribute("restaurants", restaurantRepository.findAll());
+        model.addAttribute("title", "restaurant");
+        model.addAttribute("restaurant", restaurantRepository.findAll());
         return "index";
     }
 
@@ -29,7 +29,7 @@ public class RestaurantController {
     public String displayAddRestaurantForm(Model model) {
         model.addAttribute("title", "Add Restaurant");
         model.addAttribute(new Restaurant());
-        return "add";
+        return "add-restaurant";
     }
 
     @PostMapping("add")
@@ -38,7 +38,7 @@ public class RestaurantController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Restaurant");
-            return "add";
+            return "add-restaurant";
         }
 
         restaurantRepository.save(newRestaurant);
@@ -46,14 +46,14 @@ public class RestaurantController {
         return "redirect:";
     }
 
-    @GetMapping("view-restaurant/{restaurantId}")
+    @GetMapping("view/{restaurantId}")
     public String displayViewRestaurant(Model model, @PathVariable int restaurantId) {
 
         Optional optRestaurant = restaurantRepository.findById(restaurantId);
         if (optRestaurant.isPresent()) {
             Restaurant restaurant = (Restaurant) optRestaurant.get();
             model.addAttribute("restaurant", restaurant);
-            return "view-restaurant";
+            return "view";
         } else {
             return "redirect:../";
         }

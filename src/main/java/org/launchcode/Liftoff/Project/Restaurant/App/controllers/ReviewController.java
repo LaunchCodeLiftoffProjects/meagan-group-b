@@ -22,7 +22,7 @@ public class ReviewController {
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("title", "Add Review");
+        model.addAttribute("title", "review");
         model.addAttribute("review", reviewRepository.findAll());
         return "index";
     }
@@ -39,7 +39,7 @@ public class ReviewController {
                                         Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Cuisine");
+            model.addAttribute("title", "Add Review");
             return "add-review";
         }
 
@@ -48,7 +48,7 @@ public class ReviewController {
         return "redirect:";
     }
 
-    @GetMapping("view-review/{cuisineId}")
+    @GetMapping("view-review/{reviewId}")
     public String displayViewReview(Model model, @PathVariable int reviewId) {
 
         Optional optReview = reviewRepository.findById(reviewId);

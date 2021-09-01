@@ -20,8 +20,8 @@ public class CuisineController {
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("title", "skills");
-        model.addAttribute("skills", cuisineRepository.findAll());
+        model.addAttribute("title", "cuisine");
+        model.addAttribute("cuisine", cuisineRepository.findAll());
         return "index";
     }
 
