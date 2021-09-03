@@ -26,14 +26,17 @@ public class ListController {
     public ListController () {
 
         columnChoices.put("all", "All");
-        columnChoices.put("cuisine", "Cuisine");
+        columnChoices.put("city", "City");
+        columnChoices.put("state", "State");
+        columnChoices.put("zipcode", "Zipcode");
 
     }
 
     @RequestMapping("")
     public String list(Model model) {
         model.addAttribute("view all","View All");
-        model.addAttribute("cuisine",cuisineRepository.findAll());
+        model.addAttribute("restaurants",restaurantRepository.findAll());
+        model.addAttribute("cuisines", cuisineRepository.findAll());
 
         return "list";
     }

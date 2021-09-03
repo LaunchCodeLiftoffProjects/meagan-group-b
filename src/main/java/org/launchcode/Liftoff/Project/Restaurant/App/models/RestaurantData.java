@@ -33,10 +33,10 @@ public class RestaurantData {
         String theValue;
         if (fieldName.equals("name")) {
             theValue = restaurant.getName();
-        }else if(fieldName.equals("cuisine")){
-            theValue = restaurant.getCuisine().toString();
+        }else if(fieldName.equals("address")){
+            theValue = restaurant.getAddress();
         }else{
-            theValue = "hello";
+            theValue = restaurant.getCity();
         }
 
         return theValue;
@@ -52,9 +52,9 @@ public class RestaurantData {
 
             if (restaurant.getName().toLowerCase().contains(lower_val)) {
                 results.add(restaurant);
-            } else if (restaurant.getCuisine().toString().toLowerCase().contains(lower_val)) {
+            } else if (restaurant.getAddress().toLowerCase().contains(lower_val)) {
                 results.add(restaurant);
-            } else if (restaurant.toString().toLowerCase().contains(lower_val)) {
+            } else if (restaurant.getCity().toLowerCase().contains(lower_val)) {
                 results.add(restaurant);
             }
 
