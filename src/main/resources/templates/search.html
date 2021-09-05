@@ -1,11 +1,79 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
-
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
 <body>
 
 <div th:replace="fragments :: page-header"></div>
-<div th:replace="fragments :: app-name"></div>
+
+<div class="container body-content">
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <form th:action="@{/search/results}" method = "post">
+        <h2>Search by:</h2>
+
+        <p>
+            <span th:each="column : ${columns}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${column.key}"
+                        th:value="${column.key}"
+                        th:checked="${column.key == 'all'}"/>
+                <label th:for="${column.key}" th:text="${column.value}"></label>
+            </span>
+
+        </p>
+
+        <p>
+            <label for="searchTerm">Keyword:</label>
+            <input type="text" name="searchTerm" id="searchTerm" />
+        </p>
+
+        <input type="submit" value="Search" />
+    </form>
+
+    <hr />
+
+
+    <table class="job-listing">
+        <tr th:each="restaurant : ${restaurants}">
+            <td>
+                <p>
+                    Restaurant:
+                    <a th:href="@{'/view/' + ${restaurant.id}}" th:text="${restaurant.id}"></a>
+                </p>
+                <p th:text="${'Name: ' + restaurant.name}"></p>
+                <p>
+                    Address:
+                    <a th:href="@{'/view/' + ${restaurant.address}}" th:text="${restaurant.address}"></a>
+                </p>
+                <p>
+                    City:
+                    <a th:href="@{'/view/' + ${restaurant.city}}" th:text="${restaurant.city}"></a>
+                </p>
+                <p>
+                    State:
+                    <a th:href="@{'/view/' + ${restaurant.state}}" th:text="${restaurant.state}"></a>
+                </p>
+                <p>
+                    Zipcode:
+                    <a th:href="@{'/view/' + ${restaurant.zipcode}}" th:text="${restaurant.zipcode}"></a>
+                </p>
+                <p>
+                    Phone:
+                    <a th:href="@{'/view/' + ${restaurant.phone}}" th:text="${restaurant.phone}"></a>
+                </p>
+                <p>
+                    Link:
+                    <a th:href="@{'/view/' + ${restaurant.linkForRestaurant}}" th:text="${restaurant.linkForRestaurant}"></a>
+                </p>
+            </td>
+        </tr>
+    </table>
+
+</div>
 
 </body>
 </html>
