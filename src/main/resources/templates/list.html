@@ -23,7 +23,7 @@
          </td>
          <td>
              <li th:each="cuisine : ${cuisines}">
-                 <a th:href="@{/list/restaurants(column=cuisine,value=${cuisine.cuisine})}" th:text="${cuisine.cuisine}"></a>
+                 <a th:href="@{/list/restaurants(column=cuisine,value=${cuisine.name})}" th:text="${cuisine.name}"></a>
              </li>
          </td>
          <td>
