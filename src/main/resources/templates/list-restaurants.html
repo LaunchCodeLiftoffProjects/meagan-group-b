@@ -15,11 +15,11 @@
     <table class="centeredTable">
         <tr class="container" th:each="restaurant : ${restaurants}">
             <td>
-             <h3 th:text="${restaurant.name}">
-                  <a th:href="@{'/view/' + ${restaurant.name}}"></a>
-               </h3>
+             <h3>
+                  <a th:href="@{'/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
+             </h3>
                 <p th:text="${'Address: ' + restaurant.address}"></p>
-                <p th:text="${'' + restaurant.city + ', ' + restaurant.state + '    ' + restaurant.zipcode}"></p>
+                <p th:text="${restaurant.city + ', ' + restaurant.state + restaurant.zipcode}"></p>
                 <p th:text="${'Cuisine: ' + restaurant.cuisine}"></p>
             </td>
         </tr>

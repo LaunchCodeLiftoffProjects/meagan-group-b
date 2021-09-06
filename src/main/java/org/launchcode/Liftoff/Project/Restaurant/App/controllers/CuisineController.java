@@ -18,21 +18,21 @@ public class CuisineController {
     @Autowired
     private CuisineRepository cuisineRepository;
 
-    @RequestMapping("")
-    public String index(Model model) {
-        model.addAttribute("title", "cuisine");
-        model.addAttribute("cuisine", cuisineRepository.findAll());
-        return "index";
-    }
+//    @RequestMapping("")
+//    public String index(Model model) {
+//        model.addAttribute("title", "cuisine");
+//        model.addAttribute("cuisine", cuisineRepository.findAll());
+//        return "index";
+//    }
 
-    @GetMapping("add")
+    @GetMapping("")
     public String displayAddCuisineForm(Model model) {
         model.addAttribute("title", "Add Cuisine");
         model.addAttribute(new Cuisine());
         return "add-cuisine";
     }
 
-    @PostMapping("add")
+    @PostMapping("")
     public String processAddCuisineForm(@ModelAttribute @Valid Cuisine newCuisine,
                                       Errors errors, Model model) {
 

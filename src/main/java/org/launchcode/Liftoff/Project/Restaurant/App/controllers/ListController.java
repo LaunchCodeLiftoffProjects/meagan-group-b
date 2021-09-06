@@ -41,7 +41,7 @@ public class ListController {
         return "list";
     }
 
-    @RequestMapping(value = "restaurants")
+    @RequestMapping("restaurants")
     public String listAllRestaurants(Model model, @RequestParam String column) {
         Iterable<Restaurant> restaurants = null;
         if (column.toLowerCase().equals("all")) {
@@ -51,5 +51,7 @@ public class ListController {
         model.addAttribute("restaurants", restaurants);
         return "list-restaurants";
     }
+
+
 
 }

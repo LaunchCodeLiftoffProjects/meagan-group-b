@@ -18,21 +18,21 @@ public class RestaurantController {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-    @RequestMapping("")
-    public String index(Model model) {
-        model.addAttribute("title", "restaurant");
-        model.addAttribute("restaurant", restaurantRepository.findAll());
-        return "index";
-    }
+//    @RequestMapping("")
+//    public String index(Model model) {
+//        model.addAttribute("title", "restaurant");
+//        model.addAttribute("restaurant", restaurantRepository.findAll());
+//        return "index";
+//    }
 
-    @GetMapping("add")
+    @GetMapping("")
     public String displayAddRestaurantForm(Model model) {
         model.addAttribute("title", "Add Restaurant");
         model.addAttribute(new Restaurant());
         return "add-restaurant";
     }
 
-    @PostMapping("add")
+    @PostMapping("")
     public String processAddRestaurantForm(@ModelAttribute @Valid Restaurant newRestaurant,
                                            Errors errors, Model model) {
 
@@ -53,9 +53,10 @@ public class RestaurantController {
         if (optRestaurant.isPresent()) {
             Restaurant restaurant = (Restaurant) optRestaurant.get();
             model.addAttribute("restaurant", restaurant);
-            return "view";
+            return "list-restaurants-view";
         } else {
             return "redirect:../";
         }
     }
+
 }
