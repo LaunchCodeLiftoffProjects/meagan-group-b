@@ -126,7 +126,7 @@
         <div class="form-group">
             <label th:for="cuisine">Cuisine</label>
                 <select th:field=${restaurant.cuisine}>
-                    <option th:each="cuisine : ${cuisine}"
+                    <option th:each="cuisine : ${cuisines}"
                             th:value="${cuisine.id}"
                             th:text="${cuisine.name}"></option>
                 </select>
