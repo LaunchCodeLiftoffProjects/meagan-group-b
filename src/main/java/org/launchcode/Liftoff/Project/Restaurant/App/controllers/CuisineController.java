@@ -20,8 +20,8 @@ public class CuisineController {
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("title", "cuisine");
-        model.addAttribute("cuisine", cuisineRepository.findAll());
+        model.addAttribute("title", "cuisines");
+        model.addAttribute("cuisines", cuisineRepository.findAll());
         return "index";
     }
 
@@ -46,7 +46,7 @@ public class CuisineController {
         return "redirect:";
     }
 
-    @GetMapping("view-cuisine/{cuisineId}")
+    @GetMapping("view/{cuisineId}")
     public String displayViewCuisine(Model model, @PathVariable int cuisineId) {
 
         Optional optCuisine = cuisineRepository.findById(cuisineId);

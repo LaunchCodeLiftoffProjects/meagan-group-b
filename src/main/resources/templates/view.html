@@ -10,12 +10,9 @@
 <div class="job-listing">
   <p th:text="${'ID: ' + restaurant.id}"></p>
   <p th:text="${'Name: ' + restaurant.name}"></p>
-  <p th:text="${'Address: ' + restaurant.address}"></p>
-  <p th:text="${'City: ' + restaurant.city}"></p>
-  <p th:text="${'State: ' + restaurant.state}"></p>
-  <p th:text="${'Zipcode: ' + restaurant.zipcode}"></p>
-  <p th:text="${'Phone: ' + restaurant.phone}"></p>
-  <p th:text="${'Link: ' + restaurant.linkForRestaurant}"></p>
+  <p>
+    Cuisine: <a th:href="@{'/cuisine/view/' + ${restaurant.cuisine.id}}" th:text="${restaurant.cuisine.name}"></a>
+  </p>
 </div>
 
 
