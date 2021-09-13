@@ -56,7 +56,8 @@
     <label th:for="cuisine">Cuisine</label>
     <select name="cuisineId">
       <option th:each="cuisine : ${cuisines}"
-              th:text="${restaurant.cuisine}"></option>
+              th:text="${cuisine.name}"
+              th:value="${cuisine.id}"></option>
     </select>
   </div>
 
