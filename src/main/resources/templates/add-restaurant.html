@@ -106,22 +106,58 @@
 
         <div class="form-group">
             <label th:for="hoursOfOperation">Hours of Operation</label>
+            <p>
+                <label>Open</label>
+                    <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select>
+                        <option value="00">00</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                    </select>
+                    <select>
+                        <option value="am">am</option>
+                        <option value="pm">pm</option>
+                    </select>
+                <label>Close</label>
+                    <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select>
+                        <option value="00">00</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                    </select>
                 <select>
-<!--                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>-->
+                    <option value="am">am</option>
+                    <option value="pm">pm</option>
                 </select>
-                <select>
-                </select>
+                </p>
         </div>
 
         <div class="form-group">
@@ -137,6 +173,11 @@
             <label th:for="linkForRestaurant">Link</label>
             <input class="form-control" th:field="${restaurant.linkForRestaurant}"/>
             <span th:errors="${restaurant.linkForRestaurant}" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Add Photos</label>
+            <input type="file" name="image" accept="image/png, image/jpeg">
         </div>
 
         <input type="submit" class="btn btn-primary" value="Add Restaurant">
