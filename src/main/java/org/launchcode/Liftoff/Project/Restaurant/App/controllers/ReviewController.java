@@ -20,21 +20,21 @@ public class ReviewController {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    @RequestMapping("")
-    public String index(Model model) {
-        model.addAttribute("title", "review");
-        model.addAttribute("review", reviewRepository.findAll());
-        return "index";
-    }
+//    @RequestMapping("")
+//    public String index(Model model) {
+//        model.addAttribute("title", "review");
+//        model.addAttribute("review", reviewRepository.findAll());
+//        return "index";
+//    }
 
-    @GetMapping("add")
+    @GetMapping("")
     public String displayAddReviewForm(Model model) {
         model.addAttribute("title", "Add Review");
         model.addAttribute(new Review());
         return "add-review";
     }
 
-    @PostMapping("add")
+    @PostMapping("")
     public String processAddReviewForm(@ModelAttribute @Valid Review newReview,
                                         Errors errors, Model model) {
 

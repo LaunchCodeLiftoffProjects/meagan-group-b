@@ -21,10 +21,18 @@
                         </a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link" href="review/add">Write a Review</a>
+
+                        <a class="nav-link" href="/review">Write a Review</a>
+
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link" href="/restaurant/add">Add Restaurant</a>
+                        <a class="nav-link" href="/restaurant">Add Restaurant</a>
+                    </li>
+                    <li class="nav-item px-3">
+                        <a class="nav-link" href="/cuisine">Add Cuisine</a>
+                    </li>
+                    <li class="nav-item px-3">
+                        <a class="nav-link" th:href="@{/list}">View Restaurants</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link" th:href="@{/search}">Search</a>
@@ -79,5 +87,19 @@
       font-family: Oleo Script Swash Caps;">
         Foodie
     </div>
+
+    <div th:fragment = "app-name-top-center" style="
+      top: 50px;
+      margin: auto;
+      max-width: 250px;
+      font-size: 99px;
+      color: #A85A5A;
+      text-decoration: underline;
+      text-decoration-thickness: 7%;
+      text-underline-offset: 5px;
+      font-family: Oleo Script Swash Caps;">
+        Foodie
+    </div>
+
 </body>
 </html>

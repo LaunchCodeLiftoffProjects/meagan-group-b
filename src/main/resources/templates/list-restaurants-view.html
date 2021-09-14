@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: head"></head>
+
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="job-listing">
+    <p th:text="${'ID: ' + restaurant.id}"></p>
+    <p th:text="${'Name: ' + restaurant.name}"></p>
+    <p th:text="${'Address: ' + restaurant.address}"></p>
+    <p th:text="${'City: ' + restaurant.city}"></p>
+    <p th:text="${'State: ' + restaurant.state}"></p>
+    <p th:text="${'Zip Code: ' + restaurant.zipcode}"></p>
+    <p th:text="${'Phone: ' + restaurant.phone}"></p>
+    <p th:text="${'Link: ' + restaurant.linkForRestaurant}"></p>
+</div>
+
+
+</body>
+</html>

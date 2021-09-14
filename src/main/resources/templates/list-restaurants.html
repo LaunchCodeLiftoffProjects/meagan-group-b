@@ -6,6 +6,7 @@
 
 <body>
     <div th:replace="fragments :: page-header"></div>
+    <div th:replace="fragments :: app-name-top-center"></div>
 
     <div class="body-content">
         <h2 class="centered">View All Restaurants</h2>
@@ -14,15 +15,13 @@
     <table class="centeredTable">
         <tr class="container" th:each="restaurant : ${restaurants}">
             <td>
-             <h3 th:text="${restaurant.name}">
-                  <a th:href="@{'/view/' + ${restaurant.name}}"></a>
-               </h3>
+             <h3>
+                  <a th:href="@{'/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
+             </h3>
                 <p th:text="${'Address: ' + restaurant.address}"></p>
-                <p th:text="${restaurant.city + ',' + restaurant.state + '  ' + restaurant.zipcode}"></p>
+                <p th:text="${restaurant.city + ', ' + restaurant.state + restaurant.zipcode}"></p>
                 <p th:text="${'Cuisine: ' + restaurant.cuisine}"></p>
             </td>
-        </tr>
-
         </tr>
     </table>
 

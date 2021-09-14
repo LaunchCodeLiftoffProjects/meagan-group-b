@@ -5,6 +5,7 @@
 
 <body>
     <div th:replace="fragments :: page-header"></div>
+    <div th:replace="fragments :: app-name-top-center"></div>
     <div class="body-content">
         <h2 class="centered">View Restaurants by Category</h2>
     </div>
@@ -22,15 +23,16 @@
          </td>
          <td>
              <li th:each="cuisine : ${cuisines}">
-                 <a th:href="@{/list/restaurants(column=cuisine,value=${cuisine.cuisine})}" th:text="${cuisine.cuisine}"></a>
+                 <a th:href="@{/list/restaurants(column=cuisine,value=${cuisine.name})}" th:text="${cuisine.name}"></a>
              </li>
          </td>
          <td>
-             <li th:each="zipcode : ${zipcodes}">
-                 <a href="@{/list/restaurants(column=zipcode,value=${restaurant.zipcode})}" th:text="${restaurant.city} + ',' + ${State}"></a>
-             </li>
+<!--             <li th:each="zipcode : ${restaurant.zipcode}">-->
+<!--                 <a th:href="@{/list/restaurants(column=Location,value=${restaurant.zipcode})}" th:text="${restaurant.city} + ',' + ${State}"></a>-->
+<!--             </li>-->
          </td>
      </table>
+
 
 </body>
 </html>

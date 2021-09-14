@@ -30,7 +30,7 @@ public class RestaurantController {
         return "index";
     }
 
-    @GetMapping("add")
+    @GetMapping("")
     public String displayAddRestaurantForm(Model model) {
         model.addAttribute("title", "Add Restaurant");
         model.addAttribute(new Restaurant());
@@ -38,7 +38,7 @@ public class RestaurantController {
         return "add-restaurant";
     }
 
-    @PostMapping("add")
+    @PostMapping("")
     public String processAddRestaurantForm(@ModelAttribute @Valid Restaurant newRestaurant,
                                            Errors errors, Model model, @RequestParam int cuisineId) {
 
@@ -65,9 +65,10 @@ public class RestaurantController {
         if (optRestaurant.isPresent()) {
             Restaurant restaurant = (Restaurant) optRestaurant.get();
             model.addAttribute("restaurant", restaurant);
-            return "view";
+            return "list-restaurants-view";
         } else {
             return "redirect:../";
         }
     }
+
 }
