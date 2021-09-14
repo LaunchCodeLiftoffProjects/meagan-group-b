@@ -4,13 +4,14 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
-<h1 th:text="${'Restaurant: ' + restaurant.name}">Default Title</h1>
 
 <div th:replace="fragments :: page-header"></div>
+<h1 th:text="${restaurant.name}">Default Title</h1>
+
 
 <div class="job-listing">
   <p th:text="${'ID: ' + restaurant.id}"></p>
-  <p th:text="${'Name: ' + restaurant.name}"></p>
+  <p th:text="${'Cuisine: ' + restaurant.cuisine.name}"></p>
   <p th:text="${'Address: ' + restaurant.address}"></p>
   <p th:text="${'City: ' + restaurant.city}"></p>
   <p th:text="${'State: ' + restaurant.state}"></p>
