@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+
+<body class="container  body-content">
+
+<div th:replace="fragments :: page-header"></div>
+<h1 th:text="${restaurant.name}">Default Title</h1>
+
+
+<div class="job-listing">
+  <p th:text="${'ID: ' + restaurant.id}"></p>
+  <p th:text="${'Cuisine: ' + restaurant.cuisine.name}"></p>
+  <p th:text="${'Address: ' + restaurant.address}"></p>
+  <p th:text="${'City: ' + restaurant.city}"></p>
+  <p th:text="${'State: ' + restaurant.state}"></p>
+  <p th:text="${'Zip Code: ' + restaurant.zipcode}"></p>
+  <p th:text="${'Phone: ' + restaurant.phone}"></p>
+  <p th:text="${'Link: ' + restaurant.linkForRestaurant}"></p>
+</div>
+
+
+</body>
+</html>

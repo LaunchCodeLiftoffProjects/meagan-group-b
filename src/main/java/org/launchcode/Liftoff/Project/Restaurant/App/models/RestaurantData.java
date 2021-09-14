@@ -31,12 +31,15 @@ public class RestaurantData {
     public static String getFieldValue(Restaurant restaurant, String fieldName){
 
         String theValue;
+
         if (fieldName.equals("name")) {
             theValue = restaurant.getName();
-        }else if(fieldName.equals("cuisine")){
-            theValue = restaurant.getCuisine().toString();
-        }else{
-            theValue = "hello";
+        }else if(fieldName.equals("city")){
+            theValue = restaurant.getCity();
+        }else if(fieldName.equals("state")){
+            theValue = restaurant.getState();
+        }else {
+            theValue = restaurant.getZipcode();
         }
 
         return theValue;
@@ -52,9 +55,9 @@ public class RestaurantData {
 
             if (restaurant.getName().toLowerCase().contains(lower_val)) {
                 results.add(restaurant);
-            } else if (restaurant.getCuisine().toString().toLowerCase().contains(lower_val)) {
+            } else if (restaurant.getAddress().toLowerCase().contains(lower_val)) {
                 results.add(restaurant);
-            } else if (restaurant.toString().toLowerCase().contains(lower_val)) {
+            } else if (restaurant.getCity().toLowerCase().contains(lower_val)) {
                 results.add(restaurant);
             }
 
