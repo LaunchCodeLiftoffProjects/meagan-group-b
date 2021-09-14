@@ -1,5 +1,6 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.controllers;
 
+import org.launchcode.Liftoff.Project.Restaurant.App.data.CuisineRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.data.RestaurantRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,21 +19,25 @@ public class RestaurantController {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-    @RequestMapping("")
-    public String index(Model model) {
-        model.addAttribute("title", "restaurant");
-        model.addAttribute("restaurant", restaurantRepository.findAll());
-        return "index";
-    }
+    @Autowired
+    private CuisineRepository cuisineRepository;
 
-    @GetMapping("add")
+//    @RequestMapping("")
+//    public String index(Model model) {
+//        model.addAttribute("title", "restaurant");
+//        model.addAttribute("restaurant", restaurantRepository.findAll());
+//        return "index";
+//    }
+
+    @GetMapping("")
     public String displayAddRestaurantForm(Model model) {
         model.addAttribute("title", "Add Restaurant");
         model.addAttribute(new Restaurant());
+        model.addAttribute("cuisines", cuisineRepository.findAll());
         return "add-restaurant";
     }
 
-    @PostMapping("add")
+    @PostMapping("")
     public String processAddRestaurantForm(@ModelAttribute @Valid Restaurant newRestaurant,
                                            Errors errors, Model model) {
 
@@ -53,9 +58,10 @@ public class RestaurantController {
         if (optRestaurant.isPresent()) {
             Restaurant restaurant = (Restaurant) optRestaurant.get();
             model.addAttribute("restaurant", restaurant);
-            return "view";
+            return "list-restaurants-view";
         } else {
             return "redirect:../";
         }
     }
+
 }

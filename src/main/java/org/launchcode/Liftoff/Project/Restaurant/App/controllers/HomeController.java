@@ -12,9 +12,4 @@ public class HomeController {
         return "HomePage";
     }
 
-    @GetMapping("search")
-    public String displaySearchPage() {
-        return "search";
-    }
-
 }

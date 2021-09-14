@@ -11,18 +11,18 @@ import java.util.List;
 @Entity
 public class Cuisine extends AbstractEntity{
 
-    @OneToMany
-    @JoinColumn(name = "cuisine_id")
+    /*    @JoinColumn(name = "cuisine_id")*/
+    @OneToMany(mappedBy = "cuisine")
     private List<Restaurant> restaurant = new ArrayList<>();
 
     @NotNull
     @Size(min=3, max=150)
     private String name;
 
-    public Cuisine(String aName, List<Restaurant> aRestaurant) {
+    public Cuisine(String aName/*, List<Restaurant> aRestaurant*/) {
         super();
         this.name = aName;
-        this.restaurant = aRestaurant;
+/*        this.restaurant = aRestaurant;*/
     }
 
     public Cuisine() { }
@@ -37,7 +37,12 @@ public class Cuisine extends AbstractEntity{
         this.name = name;
     }
 
-    public List<Restaurant> getRestaurant() { return restaurant; }
+/*    public List<Restaurant> getRestaurant() { return restaurant; }
 
-    public void setRestaurant(List<Restaurant> restaurant) { this.restaurant = restaurant; }
+    public void setRestaurant(List<Restaurant> restaurant) { this.restaurant = restaurant; }*/
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
