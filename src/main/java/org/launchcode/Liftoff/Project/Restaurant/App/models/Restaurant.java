@@ -34,11 +34,13 @@ public class Restaurant extends AbstractEntity{
     @NotNull
     private String linkForRestaurant;
 
-    private String hoursOfOperation;
+    private String openingTime;
+
+    private String closingTime;
 
     public Restaurant(String aName, String anAddress, String aCity, String aState,
                       String aZipcode, String aPhone, Cuisine aCuisine, String aLinkForRestaurant,
-                      String aHoursOfOperation) {
+                      String aOpeningTime, String aClosingTime) {
         super();
         this.name = aName;
         this.address = anAddress;
@@ -48,7 +50,8 @@ public class Restaurant extends AbstractEntity{
         this.phone = aPhone;
         this.cuisine = aCuisine;
         this.linkForRestaurant = aLinkForRestaurant;
-        this.hoursOfOperation = aHoursOfOperation;
+        this.openingTime = aOpeningTime;
+        this.closingTime = aClosingTime;
     }
 
     // Getters and Setters //
@@ -87,7 +90,19 @@ public class Restaurant extends AbstractEntity{
 
     public void setLinkForRestaurant(String linkForRestaurant) { this.linkForRestaurant = linkForRestaurant; }
 
-    public String getHoursOfOperation() { return hoursOfOperation; }
+    public String getOpeningTime() {
+        return openingTime;
+    }
 
-    public void setHoursOfOperation(String hoursOfOperation) { this.hoursOfOperation = hoursOfOperation; }
+    public void setOpeningTime(String openingTime) {
+        this.openingTime = openingTime;
+    }
+
+    public String getClosingTime() {
+        return closingTime;
+    }
+
+    public void setClosingTime(String closingTime) {
+        this.closingTime = closingTime;
+    }
 }
