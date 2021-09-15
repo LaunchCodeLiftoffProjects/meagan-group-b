@@ -9,7 +9,7 @@
     <div class="row">
         <div class="column">
             <h1 class="restaurantName" th:text="${restaurant.name}" >Default Title</h1>
-            <img class="largeImage" src="/images/texasRoadhouse.jpg" width="600" height="300">
+            <img class="largeImage" th:text="${restaurant.photo}" width="600" height="300">
 
             <div>
                 <img class="smallImage" style="margin-left: 200px;" src="/images/texasRoadhouse.jpg" width="100" height="100">

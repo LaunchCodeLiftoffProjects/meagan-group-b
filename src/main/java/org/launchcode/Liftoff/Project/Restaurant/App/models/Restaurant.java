@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Base64;
 
 @Entity
 public class Restaurant extends AbstractEntity{
@@ -38,9 +39,11 @@ public class Restaurant extends AbstractEntity{
 
     private String closingTime;
 
+    private byte[] photo;
+
     public Restaurant(String aName, String anAddress, String aCity, String aState,
                       String aZipcode, String aPhone, Cuisine aCuisine, String aLinkForRestaurant,
-                      String aOpeningTime, String aClosingTime) {
+                      String aOpeningTime, String aClosingTime, byte[] aPhoto) {
         super();
         this.name = aName;
         this.address = anAddress;
@@ -52,6 +55,7 @@ public class Restaurant extends AbstractEntity{
         this.linkForRestaurant = aLinkForRestaurant;
         this.openingTime = aOpeningTime;
         this.closingTime = aClosingTime;
+        this.photo = aPhoto;
     }
 
     // Getters and Setters //
@@ -105,4 +109,24 @@ public class Restaurant extends AbstractEntity{
     public void setClosingTime(String closingTime) {
         this.closingTime = closingTime;
     }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
+    }
+
+    //Photo encoding method
+
+    public String showPicture() {
+        String encoded = "";
+        if (photo != null && photo.length > 0) {
+            encoded = Base64.getEncoder().encodeToString(photo);
+        }
+        return encoded;
+    }
+
+
 }
