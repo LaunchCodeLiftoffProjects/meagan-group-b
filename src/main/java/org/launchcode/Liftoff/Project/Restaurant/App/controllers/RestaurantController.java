@@ -22,13 +22,6 @@ public class RestaurantController {
     @Autowired
     private CuisineRepository cuisineRepository;
 
-//    @RequestMapping("")
-//    public String index(Model model) {
-//        model.addAttribute("title", "restaurant");
-//        model.addAttribute("restaurant", restaurantRepository.findAll());
-//        return "index";
-//    }
-
     @GetMapping("")
     public String displayAddRestaurantForm(Model model) {
         model.addAttribute("title", "Add Restaurant");
@@ -58,7 +51,7 @@ public class RestaurantController {
         if (optRestaurant.isPresent()) {
             Restaurant restaurant = (Restaurant) optRestaurant.get();
             model.addAttribute("restaurant", restaurant);
-            return "list-restaurants-view";
+            return "view";
         } else {
             return "redirect:../";
         }

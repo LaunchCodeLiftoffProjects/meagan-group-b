@@ -5,7 +5,6 @@
 
 <body>
     <div th:replace="fragments :: page-header"></div>
-    <div th:replace="fragments :: app-name-top-center"></div>
 
     <div class="body-content">
         <h2 class="centered">Add Review</h2>
@@ -20,6 +19,10 @@
 
         <input type="submit" value="Add Review" />
     </form>
+
+    <div class="text-center">
+        <div th:replace="fragments :: app-name-auth"></div>
+    </div>
 
 </body>
 </html>
