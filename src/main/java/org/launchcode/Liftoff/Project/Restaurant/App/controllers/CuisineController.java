@@ -18,14 +18,16 @@ public class CuisineController {
     @Autowired
     private CuisineRepository cuisineRepository;
 
-//    @RequestMapping("")
-//    public String index(Model model) {
-//        model.addAttribute("title", "cuisine");
-//        model.addAttribute("cuisine", cuisineRepository.findAll());
-//        return "index";
-//    }
 
-    @GetMapping("")
+    @RequestMapping("")
+    public String index(Model model) {
+        model.addAttribute("title", "cuisines");
+        model.addAttribute("cuisines", cuisineRepository.findAll());
+        return "index";
+    }
+
+    @GetMapping("add")
+
     public String displayAddCuisineForm(Model model) {
         model.addAttribute("title", "Add Cuisine");
         model.addAttribute(new Cuisine());
@@ -46,7 +48,7 @@ public class CuisineController {
         return "redirect:";
     }
 
-    @GetMapping("view-cuisine/{cuisineId}")
+    @GetMapping("view/{cuisineId}")
     public String displayViewCuisine(Model model, @PathVariable int cuisineId) {
 
         Optional optCuisine = cuisineRepository.findById(cuisineId);

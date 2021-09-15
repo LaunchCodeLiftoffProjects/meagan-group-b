@@ -41,7 +41,7 @@ public class ReviewController {
         return "redirect:";
     }
 
-    @GetMapping("view-review/{reviewId}")
+    @GetMapping("view/{reviewId}")
     public String displayViewReview(Model model, @PathVariable int reviewId) {
 
         Optional optReview = reviewRepository.findById(reviewId);

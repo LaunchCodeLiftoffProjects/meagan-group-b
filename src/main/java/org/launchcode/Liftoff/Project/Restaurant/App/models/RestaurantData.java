@@ -31,12 +31,15 @@ public class RestaurantData {
     public static String getFieldValue(Restaurant restaurant, String fieldName){
 
         String theValue;
+
         if (fieldName.equals("name")) {
             theValue = restaurant.getName();
-        }else if(fieldName.equals("address")){
-            theValue = restaurant.getAddress();
-        }else{
+        }else if(fieldName.equals("city")){
             theValue = restaurant.getCity();
+        }else if(fieldName.equals("state")){
+            theValue = restaurant.getState();
+        }else {
+            theValue = restaurant.getZipcode();
         }
 
         return theValue;
