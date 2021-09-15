@@ -18,15 +18,7 @@ public class CuisineController {
     @Autowired
     private CuisineRepository cuisineRepository;
 
-
-    @RequestMapping("")
-    public String index(Model model) {
-        model.addAttribute("title", "cuisines");
-        model.addAttribute("cuisines", cuisineRepository.findAll());
-        return "index";
-    }
-
-    @GetMapping("add")
+    @GetMapping("")
 
     public String displayAddCuisineForm(Model model) {
         model.addAttribute("title", "Add Cuisine");
