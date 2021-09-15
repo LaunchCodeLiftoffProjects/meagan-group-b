@@ -5,12 +5,16 @@
 
 .centered {
     text-align: center;
+    margin-top: 75px;
 }
 
 .container {
     margin: 30px auto;
-    border: 1px solid #e4e4e4;
-    width: 80%;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    width: 400px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .body-content {
@@ -35,6 +39,54 @@ form {
 }
 
 .form-group {
-margin-bottom: 15px;
+    margin-bottom: 15px;
+}
 
-]
+.restaurantName {
+    font-size: 50px;
+    margin-left: 200px;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+.restaurantInfo {
+    margin-top: 175px;
+    margin-left: 50px;
+}
+
+.reviewLink {
+    position: absolute;
+    top: 75px;
+    right: 75px;
+    color: black;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.largeImage {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 75px;
+    margin-top: 10px;
+}
+
+.smallImage {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+

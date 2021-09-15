@@ -20,13 +20,6 @@ public class ReviewController {
     @Autowired
     private ReviewRepository reviewRepository;
 
-//    @RequestMapping("")
-//    public String index(Model model) {
-//        model.addAttribute("title", "review");
-//        model.addAttribute("review", reviewRepository.findAll());
-//        return "index";
-//    }
-
     @GetMapping("")
     public String displayAddReviewForm(Model model) {
         model.addAttribute("title", "Add Review");
