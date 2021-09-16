@@ -19,10 +19,9 @@ public class Cuisine extends AbstractEntity{
     @Size(min=3, max=150)
     private String name;
 
-    public Cuisine(String aName/*, List<Restaurant> aRestaurant*/) {
+    public Cuisine(String aName) {
         super();
         this.name = aName;
-/*        this.restaurant = aRestaurant;*/
     }
 
     public Cuisine() { }
@@ -36,10 +35,6 @@ public class Cuisine extends AbstractEntity{
     public void setName(String name) {
         this.name = name;
     }
-
-/*    public List<Restaurant> getRestaurant() { return restaurant; }
-
-    public void setRestaurant(List<Restaurant> restaurant) { this.restaurant = restaurant; }*/
 
     @Override
     public String toString() {
