@@ -34,11 +34,13 @@ public class RestaurantData {
 
         if (fieldName.equals("name")) {
             theValue = restaurant.getName();
-        }else if(fieldName.equals("city")){
+        } else if (fieldName.equals("cuisine")){
+            theValue = restaurant.getCuisine().toString();
+        } else if(fieldName.equals("city")){
             theValue = restaurant.getCity();
-        }else if(fieldName.equals("state")){
+        } else if(fieldName.equals("state")){
             theValue = restaurant.getState();
-        }else {
+        } else {
             theValue = restaurant.getZipcode();
         }
 

@@ -3,6 +3,7 @@ package org.launchcode.Liftoff.Project.Restaurant.App.controllers;
 import org.launchcode.Liftoff.Project.Restaurant.App.data.CuisineRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.data.RestaurantRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Restaurant;
+import org.launchcode.Liftoff.Project.Restaurant.App.models.RestaurantData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,15 +43,21 @@ public class ListController {
     }
 
     @RequestMapping("restaurants")
-    public String listAllRestaurants(Model model, @RequestParam String column) {
+    public String listRestaurantsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
         Iterable<Restaurant> restaurants = null;
         if (column.toLowerCase().equals("all")) {
             restaurants = restaurantRepository.findAll();
             model.addAttribute("title","All Restaurants");
+        } else if (column.toLowerCase().equals("cuisine")) {
+            restaurants = RestaurantData.findByColumnAndValue(column, value, restaurantRepository.findAll());
+            model.addAttribute("title", "Restaurants with " + value + " cuisine" );
         }
+
         model.addAttribute("restaurants", restaurants);
         return "list-restaurants";
     }
+
+
 
 
 
