@@ -2,61 +2,61 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
 </head>
+
 <body>
 
-<div th:replace="fragments :: page-header"></div>
+    <div th:replace="fragments :: page-header"></div>
 
-<div>
-
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-
-    <form th:action="@{/search/results}" method = "post">
-        <h2>Search by:</h2>
-
-        <p>
-            <span th:each="column : ${columns}">
-                <input
+    <div class="search">
+        <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+        <form th:action="@{/search/results}" method = "post">
+            <h2 >Search by:</h2>
+            <p>
+                <span th:each="column : ${columns}">
+                    <input
                         type="radio"
                         name="searchType"
                         th:id="${column.key}"
                         th:value="${column.key}"
                         th:checked="${column.key == 'all'}"/>
-                <label th:for="${column.key}" th:text="${column.value}"></label>
-            </span>
+                    <label th:for="${column.key}" th:text="${column.value}"></label>
+                </span>
+            </p>
 
-        </p>
+            <p>
+                <label for="searchTerm">Keyword:</label>
+                <input type="text" name="searchTerm" id="searchTerm" />
+            </p>
 
-        <p>
-            <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
-        </p>
+            <input type="submit" value="Search" />
+        </form>
 
-        <input type="submit" value="Search" />
-    </form>
+        <hr />
 
-    <hr />
+        <table class="centeredTable">
+            <tr th:each="restaurant : ${restaurants}">
 
-    <table class="centeredTable">
-        <tr th:each="restaurant : ${restaurants}">
-            <td class="container" style="border-left: 1px solid #e4e4e4; padding-left: 10px;">
-                <img class="largeImage" src="/images/texasRoadhouse.jpg" width="300" height="150">
-            </td>
-            <td class="container" style="border-right: 1px solid #e4e4e4; padding-right: 10px;" >
-                <h3 style="text-align: center; color: black;">
-                    <a th:href="@{'/restaurant/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
-                </h3>
-                <p th:text="${restaurant.address}" style="text-align: center"></p>
-                <p th:text="${restaurant.city + ', ' + restaurant.state + '  ' + restaurant.zipcode}" style="text-align: center"></p>
-                <p th:text="${'Cuisine: ' + restaurant.cuisine}" style="text-align: center"></p>
-            </td>
-        </tr>
-    </table>
+                <td class="container" style="border-left: 1px solid #e4e4e4; padding-left: 10px;">
+                    <img class="largeImage" src="/images/texasRoadhouse.jpg" width="300" height="150">
+                </td>
 
-    <div class="text-center">
-        <div th:replace="fragments :: app-name-auth"></div>
+                <td class="container" style="border-right: 1px solid #e4e4e4; padding-right: 10px;" >
+                    <h3 style="text-align: center; color: black;">
+                        <a th:href="@{'/restaurant/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
+                    </h3>
+
+                    <p th:text="${restaurant.address}" style="text-align: center"></p>
+                    <p th:text="${restaurant.city + ', ' + restaurant.state + '  ' + restaurant.zipcode}" style="text-align: center"></p>
+                    <p th:text="${'Cuisine: ' + restaurant.cuisine}" style="text-align: center"></p>
+                </td>
+            </tr>
+        </table>
+
+        <div class="text-center">
+            <div th:replace="fragments :: app-name-auth"></div>
+        </div>
+
     </div>
-
-</div>
 
 </body>
 </html>

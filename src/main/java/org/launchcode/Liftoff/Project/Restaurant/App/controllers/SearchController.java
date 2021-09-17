@@ -35,7 +35,7 @@ public class SearchController {
             restaurants = RestaurantData.findByColumnAndValue(searchType, searchTerm, restaurantRepository.findAll());
         }
         model.addAttribute("columns", columnChoices);
-        model.addAttribute("title", "Restaurants with " + columnChoices.get(searchType) + ": " + searchTerm);
+        model.addAttribute("title", "Search results for: " + searchTerm);
         model.addAttribute("restaurants", restaurants);
 
         return "search";

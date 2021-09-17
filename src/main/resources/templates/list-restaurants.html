@@ -8,7 +8,7 @@
     <div th:replace="fragments :: page-header"></div>
 
     <div class="body-content">
-        <h2 class="centered">View All Restaurants</h2>
+        <h2 class="centered" th:text="${#strings.capitalizeWords(title)}"></h2>
     </div>
 
     <table class="centeredTable">
@@ -18,7 +18,7 @@
             </td>
             <td class="container" style="border-right: 1px solid #e4e4e4; padding-right: 10px;" >
                 <h3 style="text-align: center; color: black;">
-                    <a th:href="@{'/restaurant/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
+                    <a th:href="@{'/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
                 </h3>
                 <p th:text="${restaurant.address}" style="text-align: center"></p>
                 <p th:text="${restaurant.city + ', ' + restaurant.state + '  ' + restaurant.zipcode}" style="text-align: center"></p>

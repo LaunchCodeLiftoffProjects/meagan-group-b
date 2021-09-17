@@ -7,11 +7,11 @@
     <div th:replace="fragments :: page-header"></div>
 
     <div class="body-content">
-        <h2 class="centered">View Restaurants by Category</h2>
+        <h1 class="centered">View Restaurants by Category</h1>
     </div>
 
-     <table class="centeredTable">
-         <tr>
+     <table class="list">
+         <tr style="font-size: 20px">
              <th>All</th>
              <th>Cuisine</th>
              <th>Location</th>
@@ -23,13 +23,13 @@
          </td>
          <td>
              <li th:each="cuisine : ${cuisines}">
-                 <a th:href="@{/list/restaurants(column=cuisine,value=${cuisine.name})}" th:text="${cuisine.name}"></a>
+                 <a th:href="@{/list/restaurants(column=cuisine,value=${cuisine.name})}" th:text="${cuisine.name}" style=""></a>
              </li>
          </td>
          <td>
-<!--             <li th:each="zipcode : ${restaurant.zipcode}">-->
-<!--                 <a th:href="@{/list/restaurants(column=Location,value=${restaurant.zipcode})}" th:text="${restaurant.city} + ',' + ${State}"></a>-->
-<!--             </li>-->
+             <li th:each="restaurant : ${restaurants}">
+                 <a th:href="@{/list/restaurants(column=location,value=${restaurant.zipcode})}" th:text="${restaurant.city} + ',' + ${restaurant.state}"></a>
+             </li>
          </td>
      </table>
 
