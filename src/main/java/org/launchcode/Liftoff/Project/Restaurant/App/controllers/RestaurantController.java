@@ -65,7 +65,7 @@ public class RestaurantController {
         if (optRestaurant.isPresent()) {
             Restaurant restaurant = (Restaurant) optRestaurant.get();
             model.addAttribute("restaurant", restaurant);
-            return "list-restaurants-view";
+            return "view";
         } else {
             return "redirect:../";
         }

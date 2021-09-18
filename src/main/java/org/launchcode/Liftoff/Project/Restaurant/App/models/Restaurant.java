@@ -36,9 +36,20 @@ public class Restaurant extends AbstractEntity{
 
     private String hoursOfOperation;
 
+    private String minutes;
+
+    private String timeOfDay;
+
+    private String hoursOfOperationEnd;
+
+    private String minutesEnd;
+
+    private String timeOfDayEnd;
+
     public Restaurant(String aName, String anAddress, String aCity, String aState,
                       String aZipcode, String aPhone, Cuisine aCuisine, String aLinkForRestaurant,
-                      String aHoursOfOperation) {
+                      String aHoursOfOperation, String aMinutes, String aTimeOfDay, String aHoursOfOperationEnd,
+                      String aMinutesEnd, String aTimeOfDayEnd) {
         super();
         this.name = aName;
         this.address = anAddress;
@@ -49,6 +60,11 @@ public class Restaurant extends AbstractEntity{
         this.cuisine = aCuisine;
         this.linkForRestaurant = aLinkForRestaurant;
         this.hoursOfOperation = aHoursOfOperation;
+        this.minutes = aMinutes;
+        this.timeOfDay = aTimeOfDay;
+        this.hoursOfOperationEnd = aHoursOfOperationEnd;
+        this.minutesEnd = aMinutesEnd;
+        this.timeOfDayEnd = aTimeOfDayEnd;
     }
 
     // Getters and Setters //
@@ -90,4 +106,24 @@ public class Restaurant extends AbstractEntity{
     public String getHoursOfOperation() { return hoursOfOperation; }
 
     public void setHoursOfOperation(String hoursOfOperation) { this.hoursOfOperation = hoursOfOperation; }
+
+    public String getMinutes() { return minutes; }
+
+    public void setMinutes(String minutes) { this.minutes = minutes; }
+
+    public String getTimeOfDay() { return timeOfDay; }
+
+    public void setTimeOfDay(String timeOfDay) { this.timeOfDay = timeOfDay; }
+
+    public String getHoursOfOperationEnd() { return hoursOfOperationEnd; }
+
+    public void setHoursOfOperationEnd(String hoursOfOperationEnd) { this.hoursOfOperationEnd = hoursOfOperationEnd; }
+
+    public String getMinutesEnd() { return minutesEnd; }
+
+    public void setMinutesEnd(String minutesEnd) { this.minutesEnd = minutesEnd; }
+
+    public String getTimeOfDayEnd() { return timeOfDayEnd; }
+
+    public void setTimeOfDayEnd(String timeOfDayEnd) { this.timeOfDayEnd = timeOfDayEnd; }
 }

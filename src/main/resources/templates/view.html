@@ -3,15 +3,19 @@
 
 <head th:replace="fragments :: head"></head>
 
-<body class="container  body-content">
+<body>
 
 <div th:replace="fragments :: page-header"></div>
-<h1 th:text="${restaurant.name}">Default Title</h1>
+<div th:replace="fragments :: app-name-top-center"></div>
+
+<h1 class="centered" th:text="${restaurant.name}">Default Title</h1>
 
 
-<div class="job-listing">
+<div class="centered">
   <p th:text="${'ID: ' + restaurant.id}"></p>
   <p th:text="${'Cuisine: ' + restaurant.cuisine.name}"></p>
+  <p th:text="${'Availability: ' + restaurant.hoursOfOperation + ':' + restaurant.minutes + ' ' + restaurant.timeOfDay
+        + ' to ' + restaurant.hoursOfOperationEnd + ':' + restaurant.minutesEnd + ' ' + restaurant.timeOfDayEnd}"></p>
   <p th:text="${'Address: ' + restaurant.address}"></p>
   <p th:text="${'City: ' + restaurant.city}"></p>
   <p th:text="${'State: ' + restaurant.state}"></p>
