@@ -32,9 +32,8 @@
             <span th:errors="${restaurant.city}" class="error"></span>
         </div>
 
+        <label>State</label>
         <div class="form-group">
-            <label>State</label>
-<!--            <input class="form-control" th:field="${restaurant.state}"/>-->
             <select th:field="${restaurant.state}">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -268,13 +267,13 @@
             </select>
         </div>
 
+        <label th:for="cuisine">Cuisine</label>
         <div class="form-group">
-            <label th:for="cuisine">Cuisine</label>
-                <select name="cuisineId">
-                    <option th:each="cuisine : ${cuisines}"
-                            th:value="${cuisine.id}"
-                            th:text="${cuisine.name}"></option>
-                </select>
+            <select name="cuisineId">
+                <option th:each="cuisine : ${cuisines}"
+                        th:value="${cuisine.id}"
+                        th:text="${cuisine.name}"></option>
+            </select>
             <a th:href="@{'/cuisine/add'}">Add Cuisine</a>
         </div>
 
