@@ -1,5 +1,6 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
@@ -39,11 +40,12 @@ public class Restaurant extends AbstractEntity{
 
     private String closingTime;
 
-    private byte[] photo;
+    @Column(nullable = true, length = 256)
+    private String photo;
 
     public Restaurant(String aName, String anAddress, String aCity, String aState,
                       String aZipcode, String aPhone, Cuisine aCuisine, String aLinkForRestaurant,
-                      String aOpeningTime, String aClosingTime, byte[] aPhoto) {
+                      String aOpeningTime, String aClosingTime, String aPhoto) {
         super();
         this.name = aName;
         this.address = anAddress;
@@ -110,23 +112,23 @@ public class Restaurant extends AbstractEntity{
         this.closingTime = closingTime;
     }
 
-    public byte[] getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(byte[] photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 
     //Photo encoding method
-
+/*
     public String showPicture() {
         String encoded = "";
         if (photo != null && photo.length > 0) {
             encoded = Base64.getEncoder().encodeToString(photo);
         }
         return encoded;
-    }
+    }*/
 
 
 }

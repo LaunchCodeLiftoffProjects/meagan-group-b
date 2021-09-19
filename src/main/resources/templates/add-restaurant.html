@@ -32,9 +32,8 @@
         </div>
 
         <div class="form-group">
-            <label>State
-<!--            <input class="form-control" th:field="${restaurant.state}"/>-->
-            <select th:field="${restaurant.state}">
+            <label th:for="state">State
+            <select class="form-control" th:field="${restaurant.state}">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -228,10 +227,10 @@
             <span th:errors="${restaurant.linkForRestaurant}" class="error"></span>
         </div>
 
-        <div class="form-group">
+<!--        <div class="form-group">
             <label th:for="photo">Add Photos</label>
-            <input type="file" name="image" accept="image/png, image/jpeg" th:field="${restaurant.photo}"/>
-        </div>
+            <input class="form-control" type="file" name="image" accept="image/png, image/jpeg" th:field="${restaurant.photo}"/>
+        </div>-->
 
         <input type="submit" class="btn btn-primary" value="Add Restaurant">
 

@@ -2,14 +2,19 @@ package org.launchcode.Liftoff.Project.Restaurant.App.controllers;
 
 import org.launchcode.Liftoff.Project.Restaurant.App.data.CuisineRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.data.RestaurantRepository;
+import org.launchcode.Liftoff.Project.Restaurant.App.models.FileUploadUtil;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.Optional;
 
 @Controller
@@ -64,6 +69,21 @@ public class RestaurantController {
         } else {
             return "redirect:../";
         }
+    }
+
+    @PostMapping("view/{restaurantId}")
+    public String addPhoto(Restaurant restaurant,
+                                 @RequestParam("photo") MultipartFile multipartFile) throws IOException {
+        String filename = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        restaurant.setPhoto(filename);
+
+        Restaurant currentRestaurant = restaurantRepository.save(restaurant);
+
+        String uploadDir = "restaurant-photos/" + currentRestaurant.getId();
+
+        FileUploadUtil.saveFile(uploadDir, filename, multipartFile);
+
+        return "redirect:../";
     }
 
 }
