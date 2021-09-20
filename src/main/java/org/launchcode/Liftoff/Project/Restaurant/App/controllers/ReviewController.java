@@ -1,6 +1,7 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.controllers;
 
 import org.launchcode.Liftoff.Project.Restaurant.App.data.CuisineRepository;
+import org.launchcode.Liftoff.Project.Restaurant.App.data.RestaurantRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.data.ReviewRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Cuisine;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Review;
@@ -20,10 +21,14 @@ public class ReviewController {
     @Autowired
     private ReviewRepository reviewRepository;
 
+    @Autowired
+    private RestaurantRepository restaurantRepository;
+
     @GetMapping("")
     public String displayAddReviewForm(Model model) {
         model.addAttribute("title", "Add Review");
         model.addAttribute(new Review());
+        model.addAttribute("restaurants", restaurantRepository.findAll());
         return "add-review";
     }
 
@@ -33,6 +38,7 @@ public class ReviewController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Review");
+            model.addAttribute("restaurants", restaurantRepository.findAll());
             return "add-review";
         }
 
@@ -42,6 +48,7 @@ public class ReviewController {
     }
 
     @GetMapping("view/{reviewId}")
+
     public String displayViewReview(Model model, @PathVariable int reviewId) {
 
         Optional optReview = reviewRepository.findById(reviewId);

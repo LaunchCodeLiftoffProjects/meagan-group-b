@@ -15,7 +15,7 @@ public class Cuisine extends AbstractEntity{
     @OneToMany(mappedBy = "cuisine")
     private List<Restaurant> restaurant = new ArrayList<>();
 
-    @NotNull
+    @NotNull(message = "Name is required.")
     @Size(min=3, max=150)
     private String name;
 

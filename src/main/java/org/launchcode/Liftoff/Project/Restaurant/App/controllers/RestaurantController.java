@@ -37,8 +37,10 @@ public class RestaurantController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Restaurant");
+            model.addAttribute("cuisines", cuisineRepository.findAll());
             return "add-restaurant";
         }
+
 
         restaurantRepository.save(newRestaurant);
 
