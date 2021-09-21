@@ -31,7 +31,6 @@
             <span th:errors="${restaurant.city}" class="error"></span>
         </div>
 
-        <label>State</label>
         <div class="form-group">
             <label>State
             <select th:field="${restaurant.state}">
@@ -275,7 +274,7 @@
                         th:value="${cuisine.id}"
                         th:text="${cuisine.name}"></option>
             </select>
-            <a th:href="@{'/cuisine/add'}">Add Cuisine</a>
+            <a class="linkButton" th:href="@{'/cuisine'}">Add Cuisine</a>
         </div>
 
         <div class="form-group">

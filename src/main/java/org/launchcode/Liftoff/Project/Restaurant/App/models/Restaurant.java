@@ -9,30 +9,30 @@ import javax.validation.constraints.Size;
 public class Restaurant extends AbstractEntity{
 
     @ManyToOne
-    @NotNull(message = "Cuisine is required.")
+//    @NotNull(message = "Cuisine is required.")
     private Cuisine cuisine;
 
-    @NotNull(message = "Name is required.")
+//    @NotNull(message = "Name is required.")
     @Size(min=1, max=150)
     private String name;
 
-    @NotNull(message = "Address is required.")
+//    @NotNull(message = "Address is required.")
     private String address;
 
-    @NotNull(message = "City is required.")
+//    @NotNull(message = "City is required.")
     private String city;
 
-    @NotNull(message = "State is required.")
+//    @NotNull(message = "State is required.")
     private String state;
 
-    @NotNull(message = "ZIP Code is required.")
+//    @NotNull(message = "ZIP Code is required.")
     @Size(min=5)
     private String zipcode;
 
-    @NotNull(message = "Phone number is required.")
+//    @NotNull(message = "Phone number is required.")
     private String phone;
 
-    @NotNull(message = "Link is required.")
+//    @NotNull(message = "Link is required.")
     private String linkForRestaurant;
 
     private String minutes;
@@ -47,31 +47,50 @@ public class Restaurant extends AbstractEntity{
 
     private String timeOfDayEnd;
 
-    public Restaurant(String aName, String anAddress, String aCity, String aState,
-                      String aZipcode, String aPhone, Cuisine aCuisine, String aLinkForRestaurant,
-                      String aHoursOfOperation, String aMinutes, String aTimeOfDay, String aHoursOfOperationEnd,
-                      String aMinutesEnd, String aTimeOfDayEnd) {
-        super();
-        this.name = aName;
-        this.address = anAddress;
-        this.city = aCity;
-        this.state = aState;
-        this.zipcode = aZipcode;
-        this.phone = aPhone;
-        this.cuisine = aCuisine;
-        this.linkForRestaurant = aLinkForRestaurant;
-        this.hoursOfOperation = aHoursOfOperation;
-        this.minutes = aMinutes;
-        this.timeOfDay = aTimeOfDay;
-        this.hoursOfOperationEnd = aHoursOfOperationEnd;
-        this.minutesEnd = aMinutesEnd;
-        this.timeOfDayEnd = aTimeOfDayEnd;
-
+    public Restaurant(Cuisine cuisine, String name, String address, String city, String state, String zipcode, String phone, String linkForRestaurant, String minutes, String timeOfDay, String hoursOfOperation, String hoursOfOperationEnd, String minutesEnd, String timeOfDayEnd) {
+        this.cuisine = cuisine;
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.phone = phone;
+        this.linkForRestaurant = linkForRestaurant;
+        this.minutes = minutes;
+        this.timeOfDay = timeOfDay;
+        this.hoursOfOperation = hoursOfOperation;
+        this.hoursOfOperationEnd = hoursOfOperationEnd;
+        this.minutesEnd = minutesEnd;
+        this.timeOfDayEnd = timeOfDayEnd;
     }
 
-    // Getters and Setters //
+//    public Restaurant(String aName, String anAddress, String aCity, String aState,
+//                      String aZipcode, String aPhone, Cuisine aCuisine, String aLinkForRestaurant,
+//                      String aHoursOfOperation, String aMinutes, String aTimeOfDay, String aHoursOfOperationEnd,
+//                      String aMinutesEnd, String aTimeOfDayEnd) {
+//        super();
+//        this.name = aName;
+//        this.address = anAddress;
+//        this.city = aCity;
+//        this.state = aState;
+//        this.zipcode = aZipcode;
+//        this.phone = aPhone;
+//        this.cuisine = aCuisine;
+//        this.linkForRestaurant = aLinkForRestaurant;
+//        this.hoursOfOperation = aHoursOfOperation;
+//        this.minutes = aMinutes;
+//        this.timeOfDay = aTimeOfDay;
+//        this.hoursOfOperationEnd = aHoursOfOperationEnd;
+//        this.minutesEnd = aMinutesEnd;
+//        this.timeOfDayEnd = aTimeOfDayEnd;
+//
+//    }
 
     public Restaurant() { }
+
+
+
+    // Getters and Setters //
 
     public String getName() { return name; }
 
