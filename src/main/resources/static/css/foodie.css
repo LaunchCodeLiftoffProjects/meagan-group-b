@@ -148,3 +148,13 @@ form {
     left: 0;
     color: #FFD700;
 }
+
+.linkButton {
+  background-color: #e7e7e7;
+  color: black;
+  border: 1px solid black;
+  padding: 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
