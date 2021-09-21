@@ -42,7 +42,7 @@
 
                 <td class="container" style="border-right: 1px solid #e4e4e4; padding-right: 10px;" >
                     <h3 style="text-align: center; color: black;">
-                        <a th:href="@{'/restaurant/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
+                        <a th:href="@{'/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
                     </h3>
 
                     <p th:text="${restaurant.address}" style="text-align: center"></p>

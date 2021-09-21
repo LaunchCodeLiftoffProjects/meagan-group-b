@@ -35,15 +35,11 @@ public class Restaurant extends AbstractEntity{
     @NotNull(message = "Link is required.")
     private String linkForRestaurant;
 
-    @NotNull(message = "Hours is required.")
-    private String openingTime;
-
-    @NotNull(message = "Hours is required.")
-    private String closingTime;
-
     private String minutes;
 
     private String timeOfDay;
+
+    private String hoursOfOperation;
 
     private String hoursOfOperationEnd;
 
@@ -109,12 +105,8 @@ public class Restaurant extends AbstractEntity{
 
     public void setLinkForRestaurant(String linkForRestaurant) { this.linkForRestaurant = linkForRestaurant; }
 
-    public String getOpeningTime() {
-        return openingTime;
-    }
-
-    public void setOpeningTime(String openingTime) {
-        this.openingTime = openingTime;
+    public String getHoursOfOperation() {
+        return hoursOfOperation;
     }
 
     public void setHoursOfOperation(String hoursOfOperation) { this.hoursOfOperation = hoursOfOperation; }
