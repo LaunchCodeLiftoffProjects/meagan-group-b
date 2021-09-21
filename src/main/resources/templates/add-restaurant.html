@@ -31,6 +31,7 @@
             <span th:errors="${restaurant.city}" class="error"></span>
         </div>
 
+        <label>State</label>
         <div class="form-group">
             <label>State
             <select th:field="${restaurant.state}">
@@ -87,7 +88,6 @@
                 <option value="WY">Wyoming</option>
             </select>
             <span th:errors="${restaurant.state}" class="error"></span>
-            </label>
         </div>
 
         <div class="form-group">
@@ -102,125 +102,180 @@
             <span th:errors="${restaurant.phone}" class="error"></span>
         </div>
 
+        <label>Hours of Operation</label>
         <div class="form-group">
-            <label>Hours of Operation</label>
-            <p>
-                <label th:for="openingTime">Open</label>
-                <select th:field="${restaurant.openingTime}">
-                    <option value="1:00 am">1:00 am</option>
-                    <option value="1:30 am">1:30 am</option>
-                    <option value="2:00 am">2:00 am</option>
-                    <option value="2:30 am">2:30 am</option>
-                    <option value="3:00 am">3:00 am</option>
-                    <option value="3:30 am">3:30 am</option>
-                    <option value="4:00 am">4:00 am</option>
-                    <option value="4:30 am">4:30 am</option>
-                    <option value="5:00 am">5:00 am</option>
-                    <option value="5:30 am">5:30 am</option>
-                    <option value="6:00 am">6:00 am</option>
-                    <option value="6:30 am">6:30 am</option>
-                    <option value="7:00 am">7:00 am</option>
-                    <option value="7:30 am">7:30 am</option>
-                    <option value="8:00 am">8:00 am</option>
-                    <option value="8:30 am">8:30 am</option>
-                    <option value="9:00 am">9:00 am</option>
-                    <option value="9:30 am">9:30 am</option>
-                    <option value="10:00 am">10:00 am</option>
-                    <option value="10:30 am">10:30 am</option>
-                    <option value="11:00 am">11:00 am</option>
-                    <option value="11:30 am">11:30 am</option>
-                    <option value="12:00 am">12:00 pm</option>
-                    <option value="12:30 am">12:30 pm</option>
-                    <option value="1:00 pm">1:00 pm</option>
-                    <option value="1:30 pm">1:30 pm</option>
-                    <option value="2:00 pm">2:00 pm</option>
-                    <option value="2:30 pm">2:30 pm</option>
-                    <option value="3:00 pm">3:00 pm</option>
-                    <option value="3:30 pm">3:30 pm</option>
-                    <option value="4:00 pm">4:00 pm</option>
-                    <option value="4:30 pm">4:30 pm</option>
-                    <option value="5:00 pm">5:00 pm</option>
-                    <option value="5:30 pm">5:30 pm</option>
-                    <option value="6:00 pm">6:00 pm</option>
-                    <option value="6:30 pm">6:30 pm</option>
-                    <option value="7:00 pm">7:00 pm</option>
-                    <option value="7:30 pm">7:30 pm</option>
-                    <option value="8:00 pm">8:00 pm</option>
-                    <option value="8:30 pm">8:30 pm</option>
-                    <option value="9:00 pm">9:00 pm</option>
-                    <option value="9:30 pm">9:30 pm</option>
-                    <option value="10:00 pm">10:00 pm</option>
-                    <option value="10:30 pm">10:30 pm</option>
-                    <option value="11:00 pm">11:00 pm</option>
-                    <option value="11:30 pm">11:30 pm</option>
-                    <option value="12:00 pm">12:00 am</option>
-                    <option value="12:30 pm">12:30 am</option>
-                    <span th:errors="${restaurant.openingTime}" class="error"></span>
-                </select>
-
-                <label th:for="closingTime">Close</label>
-                <select th:field="${restaurant.closingTime}">
-                    <option value="1:00 am">1:00 am</option>
-                    <option value="1:30 am">1:30 am</option>
-                    <option value="2:00 am">2:00 am</option>
-                    <option value="2:30 am">2:30 am</option>
-                    <option value="3:00 am">3:00 am</option>
-                    <option value="3:30 am">3:30 am</option>
-                    <option value="4:00 am">4:00 am</option>
-                    <option value="4:30 am">4:30 am</option>
-                    <option value="5:00 am">5:00 am</option>
-                    <option value="5:30 am">5:30 am</option>
-                    <option value="6:00 am">6:00 am</option>
-                    <option value="6:30 am">6:30 am</option>
-                    <option value="7:00 am">7:00 am</option>
-                    <option value="7:30 am">7:30 am</option>
-                    <option value="8:00 am">8:00 am</option>
-                    <option value="8:30 am">8:30 am</option>
-                    <option value="9:00 am">9:00 am</option>
-                    <option value="9:30 am">9:30 am</option>
-                    <option value="10:00 am">10:00 am</option>
-                    <option value="10:30 am">10:30 am</option>
-                    <option value="11:00 am">11:00 am</option>
-                    <option value="11:30 am">11:30 am</option>
-                    <option value="12:00 am">12:00 pm</option>
-                    <option value="12:30 am">12:30 pm</option>
-                    <option value="1:00 pm">1:00 pm</option>
-                    <option value="1:30 pm">1:30 pm</option>
-                    <option value="2:00 pm">2:00 pm</option>
-                    <option value="2:30 pm">2:30 pm</option>
-                    <option value="3:00 pm">3:00 pm</option>
-                    <option value="3:30 pm">3:30 pm</option>
-                    <option value="4:00 pm">4:00 pm</option>
-                    <option value="4:30 pm">4:30 pm</option>
-                    <option value="5:00 pm">5:00 pm</option>
-                    <option value="5:30 pm">5:30 pm</option>
-                    <option value="6:00 pm">6:00 pm</option>
-                    <option value="6:30 pm">6:30 pm</option>
-                    <option value="7:00 pm">7:00 pm</option>
-                    <option value="7:30 pm">7:30 pm</option>
-                    <option value="8:00 pm">8:00 pm</option>
-                    <option value="8:30 pm">8:30 pm</option>
-                    <option value="9:00 pm">9:00 pm</option>
-                    <option value="9:30 pm">9:30 pm</option>
-                    <option value="10:00 pm">10:00 pm</option>
-                    <option value="10:30 pm">10:30 pm</option>
-                    <option value="11:00 pm">11:00 pm</option>
-                    <option value="11:30 pm">11:30 pm</option>
-                    <option value="12:00 pm">12:00 am</option>
-                    <option value="12:30 pm">12:30 am</option>
-                    <span th:errors="${restaurant.closingTime}" class="error"></span>
-                </select>
-            </p>
+            <select th:field="${restaurant.hoursOfOperation}">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <select th:field="${restaurant.minutes}">
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+            </select>
+            <select th:field="${restaurant.timeOfDay}">
+                <option value="a.m.">a.m.</option>
+                <option value="p.m.">p.m.</option>
+            </select>
+            <i>to</i>
+            <select th:field="${restaurant.hoursOfOperationEnd}">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <select th:field="${restaurant.minutesEnd}">
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+            </select>
+            <select th:field="${restaurant.timeOfDayEnd}">
+                <option value="a.m.">a.m.</option>
+                <option value="p.m.">p.m.</option>
+            </select>
         </div>
 
+        <label th:for="cuisine">Cuisine</label>
         <div class="form-group">
-            <label th:for="cuisine">Cuisine</label>
-            <select th:field=${restaurant.cuisine}>
+
+            <select name="cuisineId">
                 <option th:each="cuisine : ${cuisines}"
                         th:value="${cuisine.id}"
                         th:text="${cuisine.name}"></option>
-                <span th:errors="${restaurant.cuisine}" class="error"></span>
             </select>
+            <a th:href="@{'/cuisine/add'}">Add Cuisine</a>
         </div>
 
         <div class="form-group">

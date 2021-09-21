@@ -11,7 +11,6 @@
     </div>
 
     <form method="post" style="max-width:600px;">
-
         <div>
             <label th:for="name">Name</label>
             <input class="form-control" th:field="${review.name}" />
@@ -32,7 +31,6 @@
                         th:text="${restaurant.name}"></option>
                 <span th:errors="${review.restaurant}" class="error"></span>
             </select>
-
         </div>
 
         <div>
@@ -52,7 +50,7 @@
             </span></label>
         </div>
 
-        <div >
+        <div>
             <label th:for="review">Review</label>
             <textarea class="form-control" th:field="${review.comment}" rows="4" cols="100" />
             <span th:errors="${review.comment}" class="error"></span>
