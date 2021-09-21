@@ -3,27 +3,50 @@
 
 <head th:replace="fragments :: head"></head>
 
-<body>
 
-<div th:replace="fragments :: page-header"></div>
-<div th:replace="fragments :: app-name-top-center"></div>
+  <body>
+    <div th:replace="fragments :: page-header"></div>
 
-<h1 class="centered" th:text="${restaurant.name}">Default Title</h1>
+    <div class="row">
+        <div class="column">
+            <h1 class="restaurantName" th:text="${restaurant.name}" ></h1>
+            <img class="largeImage" src="/images/texasRoadhouse.jpg" width="600" height="300">
 
+            <div>
+                <img class="smallImage" style="margin-left: 200px;" src="/images/texasRoadhouse.jpg" width="100" height="100">
+                <img class="smallImage" src="/images/texasRoadhouse.jpg" width="100" height="100">
+                <img class="smallImage" src="/images/texasRoadhouse.jpg" width="100" height="100">
+            </div>
 
-<div class="centered">
-  <p th:text="${'ID: ' + restaurant.id}"></p>
-  <p th:text="${'Cuisine: ' + restaurant.cuisine.name}"></p>
-  <p th:text="${'Availability: ' + restaurant.hoursOfOperation + ':' + restaurant.minutes + ' ' + restaurant.timeOfDay
-        + ' to ' + restaurant.hoursOfOperationEnd + ':' + restaurant.minutesEnd + ' ' + restaurant.timeOfDayEnd}"></p>
-  <p th:text="${'Address: ' + restaurant.address}"></p>
-  <p th:text="${'City: ' + restaurant.city}"></p>
-  <p th:text="${'State: ' + restaurant.state}"></p>
-  <p th:text="${'Zip Code: ' + restaurant.zipcode}"></p>
-  <p th:text="${'Phone: ' + restaurant.phone}"></p>
-  <p th:text="${'Link: ' + restaurant.linkForRestaurant}"></p>
-</div>
+            <div>
+                <h3 style="margin: 75px;">Hours</h3>
+                <h6 th:text="${restaurant.openingTime}"></h6>
+                <h6 th:text="${restaurant.closingTime}"></h6>
+            </div>
+        </div>
 
+        <div class="column">
+            <div>
+                <h3>
+                    <a class="reviewLink" href="/review">Write a Review</a>
+                </h3>
+            </div>
+
+            <div class="restaurantInfo">
+                <h3 th:text="${restaurant.cuisine}"></h3>
+                <h3 th:text="${restaurant.address}"></h3>
+                <h3 th:text="${restaurant.city + ', ' + restaurant.state + '  ' + restaurant.zipcode}"></h3>
+                <h3 th:text="${'Phone Number: ' + restaurant.phone}"></h3>
+                <h3 th:text="${'Website: ' + restaurant.linkForRestaurant}"></h3>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <div th:replace="fragments :: app-name-auth"></div>
+    </div>
 
 </body>
 </html>

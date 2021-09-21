@@ -6,24 +6,31 @@
 
 <body>
     <div th:replace="fragments :: page-header"></div>
-    <div th:replace="fragments :: app-name-top-center"></div>
 
     <div class="body-content">
-        <h2 class="centered">View All Restaurants</h2>
+        <h2 class="centered" th:text="${#strings.capitalizeWords(title)}"></h2>
     </div>
 
     <table class="centeredTable">
-        <tr class="container" th:each="restaurant : ${restaurants}">
-            <td>
-             <h3>
-                  <a th:href="@{'/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
-             </h3>
-                <p th:text="${'Address: ' + restaurant.address}"></p>
-                <p th:text="${restaurant.city + ', ' + restaurant.state + restaurant.zipcode}"></p>
-                <p th:text="${'Cuisine: ' + restaurant.cuisine.name}"></p>
+        <tr th:each="restaurant : ${restaurants}">
+            <td class="container" style="border-left: 1px solid #e4e4e4; padding-left: 10px;">
+                <img class="largeImage" src="/images/texasRoadhouse.jpg" width="300" height="150">
+            </td>
+            <td class="container" style="border-right: 1px solid #e4e4e4; padding-right: 10px;" >
+                <h3 style="text-align: center; color: black;">
+                    <a th:href="@{'/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
+                </h3>
+                <p th:text="${restaurant.address}" style="text-align: center"></p>
+                <p th:text="${restaurant.city + ', ' + restaurant.state + '  ' + restaurant.zipcode}" style="text-align: center"></p>
+                <p th:text="${'Cuisine: ' + restaurant.cuisine}" style="text-align: center"></p>
+
             </td>
         </tr>
     </table>
+
+    <div class="text-center">
+        <div th:replace="fragments :: app-name-auth"></div>
+    </div>
 
 </body>
 </html>

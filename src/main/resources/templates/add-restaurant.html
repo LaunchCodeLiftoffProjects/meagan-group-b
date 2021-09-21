@@ -6,7 +6,6 @@
 <body>
 
     <div th:replace="fragments :: page-header"></div>
-    <div th:replace="fragments :: app-name-top-center"></div>
 
     <div class="body-content">
         <h2 class="centered">Add Restaurant</h2>
@@ -34,6 +33,7 @@
 
         <label>State</label>
         <div class="form-group">
+            <label>State
             <select th:field="${restaurant.state}">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -91,14 +91,14 @@
         </div>
 
         <div class="form-group">
-            <label th:for="address">ZIP Code</label>
+            <label th:for="zipcode">ZIP Code</label>
             <input class="form-control" th:field="${restaurant.zipcode}"/>
             <span th:errors="${restaurant.zipcode}" class="error"></span>
         </div>
 
         <div class="form-group">
             <label th:for="phone">Phone</label>
-            <input class="form-control" th:field="${restaurant.phone}"/>
+            <input type="tel" class="form-control" th:field="${restaurant.phone}"/>
             <span th:errors="${restaurant.phone}" class="error"></span>
         </div>
 
@@ -269,6 +269,7 @@
 
         <label th:for="cuisine">Cuisine</label>
         <div class="form-group">
+
             <select name="cuisineId">
                 <option th:each="cuisine : ${cuisines}"
                         th:value="${cuisine.id}"
@@ -279,22 +280,22 @@
 
         <div class="form-group">
             <label th:for="linkForRestaurant">Link</label>
-            <input class="form-control" th:field="${restaurant.linkForRestaurant}"/>
+            <input type="url" class="form-control" th:field="${restaurant.linkForRestaurant}"/>
             <span th:errors="${restaurant.linkForRestaurant}" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Add Photos</label>
+            <input type="file" name="image" accept="image/png, image/jpeg">
         </div>
 
         <input type="submit" class="btn btn-primary" value="Add Restaurant">
 
     </form>
 
+    <div class="text-center">
+        <div th:replace="fragments :: app-name-auth"></div>
+    </div>
 
-          </form>
-       </div>
-     </div>
-</div>
-
-<div class="text-center">
-  <div th:replace="fragments :: app-name-auth"></div>
-</div>
 </body>
 </html>

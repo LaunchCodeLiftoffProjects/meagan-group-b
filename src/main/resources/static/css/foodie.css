@@ -5,12 +5,16 @@
 
 .centered {
     text-align: center;
+    margin-top: 75px;
 }
 
 .container {
     margin: 30px auto;
-    border: 1px solid #e4e4e4;
-    width: 80%;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    width: 400px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .body-content {
@@ -33,4 +37,114 @@ form {
     max-width: 600xp;
     margin: auto;
 }
-]
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.restaurantName {
+    font-size: 50px;
+    margin-left: 200px;
+    margin-top: 50px;
+    font-weight: bold;
+    font-family: belgrano;
+}
+
+.restaurantInfo {
+    margin-top: 175px;
+    margin-left: 50px;
+}
+
+.reviewLink {
+    position: absolute;
+    top: 75px;
+    right: 75px;
+    color: black;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.largeImage {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 75px;
+    margin-top: 10px;
+}
+
+.smallImage {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.search {
+    margin-left: 50px;
+    margin-top: 25px;
+}
+
+.list {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    text-align: center;
+}
+
+.txt-center {
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+}
+
+.rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+
+.rating > label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}

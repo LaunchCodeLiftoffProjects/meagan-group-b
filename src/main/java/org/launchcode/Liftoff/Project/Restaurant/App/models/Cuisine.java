@@ -15,7 +15,7 @@ public class Cuisine extends AbstractEntity{
     @JoinColumn(name = "cuisine_id")
     private List<Restaurant> restaurant = new ArrayList<>();
 
-    @NotNull
+    @NotNull(message = "Name is required.")
     @Size(min=3, max=150)
     private String name;
 

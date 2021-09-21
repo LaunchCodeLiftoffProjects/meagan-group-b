@@ -9,32 +9,37 @@ import javax.validation.constraints.Size;
 public class Restaurant extends AbstractEntity{
 
     @ManyToOne
+    @NotNull(message = "Cuisine is required.")
     private Cuisine cuisine;
 
-    @NotNull
+    @NotNull(message = "Name is required.")
     @Size(min=1, max=150)
     private String name;
 
-    @NotNull
+    @NotNull(message = "Address is required.")
     private String address;
 
-    @NotNull
+    @NotNull(message = "City is required.")
     private String city;
 
-    @NotNull
+    @NotNull(message = "State is required.")
     private String state;
 
-    @NotNull
+    @NotNull(message = "ZIP Code is required.")
     @Size(min=5)
     private String zipcode;
 
-    @NotNull
+    @NotNull(message = "Phone number is required.")
     private String phone;
 
-    @NotNull
+    @NotNull(message = "Link is required.")
     private String linkForRestaurant;
 
-    private String hoursOfOperation;
+    @NotNull(message = "Hours is required.")
+    private String openingTime;
+
+    @NotNull(message = "Hours is required.")
+    private String closingTime;
 
     private String minutes;
 
@@ -65,6 +70,7 @@ public class Restaurant extends AbstractEntity{
         this.hoursOfOperationEnd = aHoursOfOperationEnd;
         this.minutesEnd = aMinutesEnd;
         this.timeOfDayEnd = aTimeOfDayEnd;
+
     }
 
     // Getters and Setters //
@@ -103,7 +109,13 @@ public class Restaurant extends AbstractEntity{
 
     public void setLinkForRestaurant(String linkForRestaurant) { this.linkForRestaurant = linkForRestaurant; }
 
-    public String getHoursOfOperation() { return hoursOfOperation; }
+    public String getOpeningTime() {
+        return openingTime;
+    }
+
+    public void setOpeningTime(String openingTime) {
+        this.openingTime = openingTime;
+    }
 
     public void setHoursOfOperation(String hoursOfOperation) { this.hoursOfOperation = hoursOfOperation; }
 
@@ -126,4 +138,5 @@ public class Restaurant extends AbstractEntity{
     public String getTimeOfDayEnd() { return timeOfDayEnd; }
 
     public void setTimeOfDayEnd(String timeOfDayEnd) { this.timeOfDayEnd = timeOfDayEnd; }
+
 }
