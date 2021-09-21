@@ -33,7 +33,6 @@
 
         <label>State</label>
         <div class="form-group">
-            <label>State
             <select th:field="${restaurant.state}">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -104,7 +103,7 @@
 
         <label>Hours of Operation</label>
         <div class="form-group">
-            <select th:field="${restaurant.hoursOfOperation}">
+            <select th:field="${restaurant.hoursOfOperationOpen}">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -118,7 +117,7 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
             </select>
-            <select th:field="${restaurant.minutes}">
+            <select th:field="${restaurant.minutesOpen}">
                 <option value="00">00</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -180,7 +179,7 @@
                 <option value="58">58</option>
                 <option value="59">59</option>
             </select>
-            <select th:field="${restaurant.timeOfDay}">
+            <select th:field="${restaurant.timeOfDayOpen}">
                 <option value="a.m.">a.m.</option>
                 <option value="p.m.">p.m.</option>
             </select>
@@ -275,13 +274,13 @@
                         th:value="${cuisine.id}"
                         th:text="${cuisine.name}"></option>
             </select>
-            <a th:href="@{'/cuisine/add'}">Add Cuisine</a>
+            <a th:href="@{'/cuisine/'}">Add Cuisine</a>
         </div>
 
         <div class="form-group">
             <label th:for="linkForRestaurant">Link</label>
-            <input type="url" class="form-control" th:field="${restaurant.linkForRestaurant}"/>
-            <span th:errors="${restaurant.linkForRestaurant}" class="error"></span>
+            <input class="form-control" th:field="${restaurant.linkForRestaurant}"/>
+            <span th:errors="${restaurant.linkForRestaurant}" class="errors"></span>
         </div>
 
         <div class="form-group">

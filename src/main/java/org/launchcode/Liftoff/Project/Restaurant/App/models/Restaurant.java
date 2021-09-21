@@ -9,7 +9,6 @@ import javax.validation.constraints.Size;
 public class Restaurant extends AbstractEntity{
 
     @ManyToOne
-    @NotNull(message = "Cuisine is required.")
     private Cuisine cuisine;
 
     @NotNull(message = "Name is required.")
@@ -32,14 +31,13 @@ public class Restaurant extends AbstractEntity{
     @NotNull(message = "Phone number is required.")
     private String phone;
 
-    @NotNull(message = "Link is required.")
     private String linkForRestaurant;
 
-    private String minutes;
+    private String minutesOpen;
 
-    private String timeOfDay;
+    private String timeOfDayOpen;
 
-    private String hoursOfOperation;
+    private String hoursOfOperationOpen;
 
     private String hoursOfOperationEnd;
 
@@ -49,7 +47,7 @@ public class Restaurant extends AbstractEntity{
 
     public Restaurant(String aName, String anAddress, String aCity, String aState,
                       String aZipcode, String aPhone, Cuisine aCuisine, String aLinkForRestaurant,
-                      String aHoursOfOperation, String aMinutes, String aTimeOfDay, String aHoursOfOperationEnd,
+                      String aHoursOfOperationOpen, String aMinutesOpen, String aTimeOfDayOpen, String aHoursOfOperationEnd,
                       String aMinutesEnd, String aTimeOfDayEnd) {
         super();
         this.name = aName;
@@ -60,9 +58,9 @@ public class Restaurant extends AbstractEntity{
         this.phone = aPhone;
         this.cuisine = aCuisine;
         this.linkForRestaurant = aLinkForRestaurant;
-        this.hoursOfOperation = aHoursOfOperation;
-        this.minutes = aMinutes;
-        this.timeOfDay = aTimeOfDay;
+        this.hoursOfOperationOpen = aHoursOfOperationOpen;
+        this.minutesOpen = aMinutesOpen;
+        this.timeOfDayOpen = aTimeOfDayOpen;
         this.hoursOfOperationEnd = aHoursOfOperationEnd;
         this.minutesEnd = aMinutesEnd;
         this.timeOfDayEnd = aTimeOfDayEnd;
@@ -105,19 +103,17 @@ public class Restaurant extends AbstractEntity{
 
     public void setLinkForRestaurant(String linkForRestaurant) { this.linkForRestaurant = linkForRestaurant; }
 
-    public String getHoursOfOperation() {
-        return hoursOfOperation;
-    }
+    public String getHoursOfOperationOpen() { return hoursOfOperationOpen; }
 
-    public void setHoursOfOperation(String hoursOfOperation) { this.hoursOfOperation = hoursOfOperation; }
+    public void setHoursOfOperationOpen(String hoursOfOperationOpen) { this.hoursOfOperationOpen = hoursOfOperationOpen; }
 
-    public String getMinutes() { return minutes; }
+    public String getMinutesOpen() { return minutesOpen; }
 
-    public void setMinutes(String minutes) { this.minutes = minutes; }
+    public void setMinutesOpen(String minutesOpen) { this.minutesOpen = minutesOpen; }
 
-    public String getTimeOfDay() { return timeOfDay; }
+    public String getTimeOfDayOpen() { return timeOfDayOpen; }
 
-    public void setTimeOfDay(String timeOfDay) { this.timeOfDay = timeOfDay; }
+    public void setTimeOfDayOpen(String timeOfDayOpen) { this.timeOfDayOpen = timeOfDayOpen; }
 
     public String getHoursOfOperationEnd() { return hoursOfOperationEnd; }
 

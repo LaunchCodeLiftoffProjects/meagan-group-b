@@ -40,9 +40,4 @@ public class Cuisine extends AbstractEntity{
     public List<Restaurant> getRestaurant() { return restaurant; }
 
     public void setRestaurant(List<Restaurant> restaurant) { this.restaurant = restaurant; }
-
-    @Override
-    public String toString() {
-        return name;
-    }
 }
