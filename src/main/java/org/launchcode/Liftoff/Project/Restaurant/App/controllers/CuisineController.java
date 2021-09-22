@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.Valid;
 import java.util.Optional;
 
@@ -28,7 +30,7 @@ public class CuisineController {
 
     @PostMapping("")
     public String processAddCuisineForm(@ModelAttribute @Valid Cuisine newCuisine,
-                                      Errors errors, Model model) {
+                                        Errors errors, Model model){
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Cuisine");

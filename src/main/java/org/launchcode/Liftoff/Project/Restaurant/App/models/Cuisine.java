@@ -1,5 +1,6 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -17,6 +18,7 @@ public class Cuisine extends AbstractEntity{
 
     @NotNull(message = "Name is required.")
     @Size(min=3, max=150)
+    @Column(unique = true)
     private String name;
 
     public Cuisine(String aName, List<Restaurant> aRestaurant) {
