@@ -19,6 +19,14 @@
             </div>
 
             <div>
+                <form th:action="@{/restaurant/view/{restaurantId}}" th:object="${ImageDB}" method="post" enctype="multipart/form-data">
+                    <label>Add Photos</label>
+                    <input type="file" name="image" accept="image/png, image/jpeg" />
+                    <input type="submit" class="btn btn-primary" value="Add Photo">
+                </form>
+            </div>
+
+            <div>
                 <h3 style="margin: 75px;">Hours</h3>
                 <h6 th:text="${restaurant.hoursOfOperationOpen + ':' + restaurant.minutesOpen + ' ' + restaurant.timeOfDayOpen}"></h6>
                 <h6 th:text="${restaurant.hoursOfOperationEnd + ':' + restaurant.minutesEnd + ' ' + restaurant.timeOfDayEnd}"></h6>
