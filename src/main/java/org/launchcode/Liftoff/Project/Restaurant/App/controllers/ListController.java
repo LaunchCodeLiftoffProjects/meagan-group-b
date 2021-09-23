@@ -27,9 +27,12 @@ public class ListController {
     public ListController () {
 
         columnChoices.put("all", "All");
+        columnChoices.put("name", "Restaurant Name");
+        columnChoices.put("zipcode", "Zipcode");
         columnChoices.put("city", "City");
         columnChoices.put("state", "State");
-        columnChoices.put("zipcode", "Zipcode");
+
+
 
     }
 
@@ -51,6 +54,9 @@ public class ListController {
         } else if (column.toLowerCase().equals("cuisine")) {
             restaurants = RestaurantData.findByColumnAndValue(column, value, restaurantRepository.findAll());
             model.addAttribute("title", "Restaurants with " + value + " cuisine" );
+        } else {
+            restaurants = RestaurantData.findByColumnAndValue(column, value, restaurantRepository.findAll());
+            model.addAttribute("title", "Restaurants with ZIP Code " + value);
         }
 
         model.addAttribute("restaurants", restaurants);

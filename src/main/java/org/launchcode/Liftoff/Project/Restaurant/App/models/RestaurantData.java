@@ -35,7 +35,7 @@ public class RestaurantData {
         if (fieldName.equals("name")) {
             theValue = restaurant.getName();
         } else if (fieldName.equals("cuisine")){
-            theValue = restaurant.getCuisine().toString();
+            theValue = restaurant.getCuisine().getName();
         } else if(fieldName.equals("city")){
             theValue = restaurant.getCity();
         } else if(fieldName.equals("state")){
