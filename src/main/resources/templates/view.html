@@ -4,7 +4,8 @@
 <head th:replace="fragments :: head"></head>
 
 
-  <body>
+<body>
+
     <div th:replace="fragments :: page-header"></div>
 
     <div class="row">
@@ -19,9 +20,9 @@
             </div>
 
             <div>
-                <h3 style="margin: 75px;">Hours</h3>
-                <h6 th:text="${restaurant.hoursOfOperationOpen + ':' + restaurant.minutesOpen + ' ' + restaurant.timeOfDayOpen}"></h6>
-                <h6 th:text="${restaurant.hoursOfOperationEnd + ':' + restaurant.minutesEnd + ' ' + restaurant.timeOfDayEnd}"></h6>
+                <h2 style="margin-left: 125px; margin-top: 75px;">Hours</h2>
+                <h4 style="margin-left: 75px;"th:text="${restaurant.hoursOfOperationOpen + ':' + restaurant.minutesOpen + ' ' + restaurant.timeOfDayOpen + ' - ' +
+                 restaurant.hoursOfOperationEnd + ':' + restaurant.minutesEnd + ' ' + restaurant.timeOfDayEnd}"></h4>
             </div>
         </div>
 
@@ -31,16 +32,15 @@
                     <a class="reviewLink" href="/review">Write a Review</a>
                 </h3>
             </div>
-
             <div class="restaurantInfo">
-                <h3 th:text="${restaurant.cuisine.name}"></h3>
+
                 <h3 th:text="${restaurant.address}"></h3>
                 <h3 th:text="${restaurant.city + ', ' + restaurant.state + '  ' + restaurant.zipcode}"></h3>
+                <h3 th:text="${'Cuisine: '+ restaurant.cuisine.name}"></h3>
                 <h3 th:text="${'Phone Number: ' + restaurant.phone}"></h3>
                 <h3 th:text="${'Website: ' + restaurant.linkForRestaurant}"></h3>
             </div>
 
-            </div>
         </div>
     </div>
 
