@@ -48,21 +48,5 @@ public class ReviewController {
         return "redirect:";
     }
 
-    @RequestMapping("reviews")
-    public String listReviewsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
-
-        Iterable<Review> reviews = reviewRepository.findAll();
-        if (column.toLowerCase().equals("all")) {
-            model.addAttribute("title", "All Reviews");
-            model.addAttribute("reviews", reviews);
-        } else {
-            reviews = ReviewData.findByColumnAndValue(column, value, reviewRepository.findAll());
-            model.addAttribute("title", "Reviews for " + value);
-
-        }
-
-        model.addAttribute("reviews", reviews);
-        return "view-reviews";
-    }
 
 }

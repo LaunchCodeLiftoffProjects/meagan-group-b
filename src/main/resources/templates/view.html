@@ -30,6 +30,9 @@
             <div>
                 <h3>
                     <a class="reviewLink" href="/review">Write a Review</a>
+                    <th:block th:with="link=${restaurant.linkForRestaurant}">
+                        <a class="websiteLink" th:href="@{//{link}(link=${restaurant.linkForRestaurant})}" target="_blank">Visit Website</a>
+                    </th:block>
                 </h3>
             </div>
             <div class="restaurantInfo">
@@ -38,16 +41,21 @@
                 <h3 th:text="${restaurant.city + ', ' + restaurant.state + '  ' + restaurant.zipcode}"></h3>
                 <h3 th:text="${'Cuisine: '+ restaurant.cuisine.name}"></h3>
                 <h3 th:text="${'Phone Number: ' + restaurant.phone}"></h3>
-                <h3>
-                    <th:block th:with="link=${restaurant.linkForRestaurant}">
-                        <a th:href="@{//{link}(link=${restaurant.linkForRestaurant})}" target="_blank">Visit Website</a>
-                    </th:block>
-                </h3>
-                <h3>
-                    <a th:href="@{/review/reviews(column=restaurant,value=${restaurant.name})}">View Reviews</a>
-                </h3>
-
             </div>
+
+            <table class="centeredTable">
+                <th>
+                    <h3>Reviews</h3>
+                </th>
+                <tr th:each="review : ${reviews}">
+                    <td class="reviewContainer">
+                        <h5 th:text="${'Reviewer: ' + review.name}"></h5>
+                        <h6 th:text="${'Rating: ' + review.rating + ' stars'}"></h6>
+                        <h6 th:text="${review.date}"></h6>
+                        <p th:text="${review.comment}"></p>
+                    </td>
+                </tr>
+            </table>
 
         </div>
     </div>

@@ -31,13 +31,13 @@ public class ReviewData {
 
     public static String getFieldValue(Review review, String fieldName){
 
-        Restaurant theValue = null;
+        String theValue = null;
 
         if (fieldName.equals("restaurant")) {
-            theValue = review.getRestaurant();
+            theValue = review.getRestaurant().getName();
         }
 
-        return theValue.getName();
+        return theValue;
     }
 
     public static ArrayList<Review> findByValue(String value, Iterable<Review> allReviews) {
