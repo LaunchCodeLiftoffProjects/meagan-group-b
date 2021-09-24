@@ -1,15 +1,23 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Restaurant extends AbstractEntity{
 
     @ManyToOne
     private Cuisine cuisine;
+
+    @OneToMany
+    @JoinColumn(name = "restaurant_id")
+    private List<Review> review = new ArrayList<>();
 
     @NotNull(message = "Name is required.")
     @Size(min=1, max=150)
@@ -45,11 +53,12 @@ public class Restaurant extends AbstractEntity{
 
     private String timeOfDayEnd;
 
-    public Restaurant(String aName, String anAddress, String aCity, String aState,
+    public Restaurant(List<Review> review, String aName, String anAddress, String aCity, String aState,
                       String aZipcode, String aPhone, Cuisine aCuisine, String aLinkForRestaurant,
                       String aHoursOfOperationOpen, String aMinutesOpen, String aTimeOfDayOpen, String aHoursOfOperationEnd,
                       String aMinutesEnd, String aTimeOfDayEnd) {
         super();
+        this.review = review;
         this.name = aName;
         this.address = anAddress;
         this.city = aCity;
@@ -70,6 +79,14 @@ public class Restaurant extends AbstractEntity{
     // Getters and Setters //
 
     public Restaurant() { }
+
+    public List<Review> getReview() {
+        return review;
+    }
+
+    public void setReview(List<Review> review) {
+        this.review = review;
+    }
 
     public String getName() { return name; }
 

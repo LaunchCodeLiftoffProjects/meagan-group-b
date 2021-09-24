@@ -2,8 +2,10 @@ package org.launchcode.Liftoff.Project.Restaurant.App.controllers;
 
 import org.launchcode.Liftoff.Project.Restaurant.App.data.CuisineRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.data.RestaurantRepository;
+import org.launchcode.Liftoff.Project.Restaurant.App.data.ReviewRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Cuisine;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Restaurant;
+import org.launchcode.Liftoff.Project.Restaurant.App.models.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,9 @@ public class RestaurantController {
 
     @Autowired
     private CuisineRepository cuisineRepository;
+
+    @Autowired
+    private ReviewRepository reviewRepository;
 
 
     @GetMapping("")
@@ -47,6 +52,7 @@ public class RestaurantController {
             Cuisine cuisine = (Cuisine) optCuisine.get();
             newRestaurant.setCuisine(cuisine);
         }
+
 
         restaurantRepository.save(newRestaurant);
 
