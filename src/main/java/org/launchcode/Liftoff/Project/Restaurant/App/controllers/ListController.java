@@ -32,8 +32,6 @@ public class ListController {
         columnChoices.put("city", "City");
         columnChoices.put("state", "State");
 
-
-
     }
 
     @RequestMapping("")

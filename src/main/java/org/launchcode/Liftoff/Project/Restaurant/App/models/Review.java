@@ -25,6 +25,7 @@ public class Review extends AbstractEntity {
     private Integer rating;
 
     public Review(Restaurant restaurant, String name, String date, String comment, Integer rating) {
+        super();
         this.restaurant = restaurant;
         this.name = name;
         this.date = date;
