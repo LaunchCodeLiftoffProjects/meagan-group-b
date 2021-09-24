@@ -8,7 +8,7 @@ public class RestaurantData {
 
         ArrayList<Restaurant> results = new ArrayList<>();
 
-        if (value.toLowerCase().equals("all")){
+        if (value.equalsIgnoreCase("all")){
             return (ArrayList<Restaurant>) allRestaurants;
         }
 
@@ -60,6 +60,10 @@ public class RestaurantData {
             } else if (restaurant.getAddress().toLowerCase().contains(lower_val)) {
                 results.add(restaurant);
             } else if (restaurant.getCity().toLowerCase().contains(lower_val)) {
+                results.add(restaurant);
+            } else if (restaurant.getCuisine().getName().toLowerCase().contains(lower_val)) {
+                results.add(restaurant);
+            } else if (restaurant.getState().toLowerCase().contains(lower_val)) {
                 results.add(restaurant);
             }
 
