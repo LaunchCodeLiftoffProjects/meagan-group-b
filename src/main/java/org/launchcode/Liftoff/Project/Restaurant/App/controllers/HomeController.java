@@ -32,20 +32,12 @@ public class HomeController {
     }
 
     @GetMapping("view/{restaurantId}")
-    public String displayViewRestaurant(Model model, @PathVariable int restaurantId, Review review) {
+    public String displayViewRestaurant(Model model, @PathVariable int restaurantId) {
 
-//        Optional optReview = reviewRepository.findById(reviewId);
         Optional optRestaurant = restaurantRepository.findById(restaurantId);
         if (optRestaurant.isPresent()) {
             Restaurant restaurant = (Restaurant) optRestaurant.get();
             model.addAttribute("restaurant", restaurant);
-
-            
-
-//            if (optReview.isPresent()) {
-//                Review review = (Review) optReview.get();
-//                model.addAttribute("review", review);
-//            }
 
             return "view";
         } else {
@@ -53,17 +45,17 @@ public class HomeController {
         }
     }
 
-//    @GetMapping("view/review/{reviewId}")
-//    public String displayViewReview(Model model, @PathVariable int reviewId) {
-//
-//        Optional optReview = reviewRepository.findById(reviewId);
-//        if (optReview.isPresent()) {
-//            Review review = (Review) optReview.get();
-//            model.addAttribute("review", review);
-//            return "view-review";
-//        } else {
-//            return "redirect:../";
-//        }
-//    }
+    @GetMapping("view-review/{reviewId}")
+    public String displayViewReview(Model model, @PathVariable int reviewId) {
+
+        Optional optReview = reviewRepository.findById(reviewId);
+        if (optReview.isPresent()) {
+            Review review = (Review) optReview.get();
+            model.addAttribute("review", review);
+            return "view-review";
+        } else {
+            return "redirect:../";
+        }
+    }
 
 }

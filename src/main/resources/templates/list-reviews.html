@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+
+<body>
+<div th:replace="fragments :: page-header"></div>
+
+<div class="body-content">
+  <h2 class="centered" th:text="${#strings.capitalizeWords(title)}"></h2>
+</div>
+
+<table class="centeredTable">
+  <tr th:each="review : ${reviews}">
+    <td class="container" style="border-right: 1px solid #e4e4e4; padding-right: 10px;" >
+      <h5 th:text="${review.name}"></h5>
+      <h6 th:text="${review.date}"></h6>
+      <p th:text="${review.comment}"></p>
+      <p th:text="${review.restaurant.name}"></p>
+    </td>
+  </tr>
+</table>
+
+<div class="text-center">
+  <div th:replace="fragments :: app-name-auth"></div>
+</div>
+
+</body>
+</html>

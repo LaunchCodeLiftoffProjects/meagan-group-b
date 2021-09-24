@@ -1,9 +1,13 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -36,13 +40,10 @@ public class Review extends AbstractEntity {
 
     // Getters and Setters //
 
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
 
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
+    public Restaurant getRestaurant() { return restaurant; }
+
+    public void setRestaurant(Restaurant restaurant) { this.restaurant = restaurant; }
 
     public String getName() {
         return name;

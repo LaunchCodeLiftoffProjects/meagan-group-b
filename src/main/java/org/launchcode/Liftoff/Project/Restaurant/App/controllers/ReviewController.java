@@ -38,7 +38,6 @@ public class ReviewController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Review");
-            model.addAttribute("restaurants", restaurantRepository.findAll());
             return "add-review";
         }
 

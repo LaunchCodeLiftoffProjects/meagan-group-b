@@ -2,15 +2,19 @@ package org.launchcode.Liftoff.Project.Restaurant.App.controllers;
 
 import org.launchcode.Liftoff.Project.Restaurant.App.data.CuisineRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.data.RestaurantRepository;
+import org.launchcode.Liftoff.Project.Restaurant.App.data.ReviewRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Restaurant;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.RestaurantData;
+import org.launchcode.Liftoff.Project.Restaurant.App.models.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("list")
@@ -22,6 +26,9 @@ public class ListController {
     @Autowired
     private CuisineRepository cuisineRepository;
 
+    @Autowired
+    private ReviewRepository reviewRepository;
+
     static HashMap<String, String> columnChoices = new HashMap<>();
 
     public ListController () {
@@ -31,9 +38,6 @@ public class ListController {
         columnChoices.put("zipcode", "Zipcode");
         columnChoices.put("city", "City");
         columnChoices.put("state", "State");
-
-
-
     }
 
     @RequestMapping("")
@@ -41,6 +45,7 @@ public class ListController {
         model.addAttribute("view all","View All");
         model.addAttribute("restaurants",restaurantRepository.findAll());
         model.addAttribute("cuisines", cuisineRepository.findAll());
+        model.addAttribute("reviews", reviewRepository.findAll());
 
         return "list";
     }
@@ -63,8 +68,10 @@ public class ListController {
         return "list-restaurants";
     }
 
+    @RequestMapping("review")
+    public String displayListReviews(Model model) {
 
-
-
-
+        model.addAttribute("reviews", reviewRepository.findAll());
+        return "list-reviews";
+    }
 }

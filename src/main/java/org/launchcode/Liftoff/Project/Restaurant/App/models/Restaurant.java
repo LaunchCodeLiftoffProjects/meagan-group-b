@@ -1,15 +1,20 @@
 package org.launchcode.Liftoff.Project.Restaurant.App.models;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Restaurant extends AbstractEntity{
 
     @ManyToOne
     private Cuisine cuisine;
+
+    @OneToMany
+    @JoinColumn(name = "restaurant_id")
+    private List<Review> review = new ArrayList<>();
 
     @NotNull(message = "Name is required.")
     @Size(min=1, max=150)
@@ -48,7 +53,7 @@ public class Restaurant extends AbstractEntity{
     public Restaurant(String aName, String anAddress, String aCity, String aState,
                       String aZipcode, String aPhone, Cuisine aCuisine, String aLinkForRestaurant,
                       String aHoursOfOperationOpen, String aMinutesOpen, String aTimeOfDayOpen, String aHoursOfOperationEnd,
-                      String aMinutesEnd, String aTimeOfDayEnd) {
+                      String aMinutesEnd, String aTimeOfDayEnd, List<Review> aReview) {
         super();
         this.name = aName;
         this.address = anAddress;
@@ -64,6 +69,7 @@ public class Restaurant extends AbstractEntity{
         this.hoursOfOperationEnd = aHoursOfOperationEnd;
         this.minutesEnd = aMinutesEnd;
         this.timeOfDayEnd = aTimeOfDayEnd;
+        this.review = aReview;
 
     }
 
@@ -127,4 +133,7 @@ public class Restaurant extends AbstractEntity{
 
     public void setTimeOfDayEnd(String timeOfDayEnd) { this.timeOfDayEnd = timeOfDayEnd; }
 
+    public List<Review> getReview() { return review; }
+
+    public void setReview(List<Review> review) { this.review = review; }
 }
