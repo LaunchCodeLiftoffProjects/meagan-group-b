@@ -4,18 +4,12 @@ import org.launchcode.Liftoff.Project.Restaurant.App.data.CuisineRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.data.RestaurantRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.data.ReviewRepository;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Restaurant;
-import org.launchcode.Liftoff.Project.Restaurant.App.models.RestaurantData;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.Review;
 import org.launchcode.Liftoff.Project.Restaurant.App.models.ReviewData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.ArrayList;
+import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @Controller
@@ -42,10 +36,25 @@ public class HomeController {
         if (optRestaurant.isPresent()) {
             Restaurant restaurant = (Restaurant) optRestaurant.get();
             model.addAttribute("restaurant", restaurant);
+
+            String column = "restaurant";
+            String value = restaurant.getName();
+
+            Iterable<Review> reviews = reviewRepository.findAll();
+            reviews = ReviewData.findByColumnAndValue(column, value, reviewRepository.findAll());
+
+            model.addAttribute("reviews", reviews);
             return "view";
         } else {
             return "redirect:../";
         }
     }
+
+//    @PostMapping("view/{restaurantId}")
+//    public String displayReviewsByColumnAndValue(Model model, ) {
+//
+//
+//        return "view";
+//    }
 
 }
