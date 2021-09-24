@@ -38,7 +38,11 @@
                 <h3 th:text="${restaurant.city + ', ' + restaurant.state + '  ' + restaurant.zipcode}"></h3>
                 <h3 th:text="${'Cuisine: '+ restaurant.cuisine.name}"></h3>
                 <h3 th:text="${'Phone Number: ' + restaurant.phone}"></h3>
-                <h3 th:text="${'Website: ' + restaurant.linkForRestaurant}"></h3>
+                <h3>
+                    <th:block th:with="link=${restaurant.linkForRestaurant}">
+                        <a th:href="@{//{link}(link=${restaurant.linkForRestaurant})}" target="_blank">Visit Website</a>
+                    </th:block>
+                </h3>
                 <h3>
                     <a th:href="@{/review/reviews(column=restaurant,value=${restaurant.name})}">View Reviews</a>
                 </h3>
