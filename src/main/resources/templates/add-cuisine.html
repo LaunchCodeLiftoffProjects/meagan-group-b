@@ -6,24 +6,22 @@
 <body>
     <div th:replace="fragments :: page-header"></div>
 
-    <div class="body-content">
-        <h2 class="centered">Add Cuisine</h2>
-    </div>
+    <div th:replace="fragments :: app-name-top-center"></div>
 
+    <div class="text-center container">
+        <h2>Add Cuisine</h2>
+    </div>
 
     <form method="post" style="max-width:600px;">
         <div class="form-group">
-            <label th:for="cuisine">Cuisine</label>
-            <input class="form-control" th:field="${cuisine.name}" />
+            <input class="form-control" placeholder="Cuisine" th:field="${cuisine.name}" />
             <span th:errors="${cuisine.name}" class="error"></span>
         </div>
 
-        <input type="submit" class="btn btn-primary" value="Add Cuisine" />
+        <div class="form-group text-center">
+            <input type="submit" class="btn btn-primary" value="Add Cuisine" />
+        </div>
     </form>
-
-    <div class="text-center">
-        <div th:replace="fragments :: app-name-auth"></div>
-    </div>
 
 </body>
 </html>
