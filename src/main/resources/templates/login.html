@@ -5,9 +5,14 @@
 
 <div th:replace="fragments :: page-header"></div>
 
-<div style="display: flex; justify-content: center; align-items: center; height: 600px">
+<div th:replace="fragments :: app-name-top-center"></div>
+
+<div class="text-center container">
+    <h2>Log In</h2>
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center;">
         <form method="post" class="form-signin">
-            <h1>Log In</h1>
             <div class="form-group">
                 <label th:for="username">
                     <input class="form-control" th:field="${loginFormDTO.username}" placeholder="Username">
@@ -32,9 +37,6 @@
         </form>
 
 </div>
-
-<div th:replace="fragments :: app-name-auth"></div>
-
 
 </body>
 </html>

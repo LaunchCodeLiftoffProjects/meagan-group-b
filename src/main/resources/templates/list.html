@@ -6,8 +6,10 @@
 <body>
     <div th:replace="fragments :: page-header"></div>
 
-    <div class="body-content">
-        <h1 class="centered">View Restaurants by Category</h1>
+    <div th:replace="fragments :: app-name-top-center"></div>
+
+    <div class="text-center container">
+        <h2>View Restaurants</h2>
     </div>
 
      <table class="list">
@@ -32,11 +34,6 @@
              </li>
          </td>
      </table>
-
-    <div class="text-center">
-        <div th:replace="fragments :: app-name-auth"></div>
-    </div>
-
 
 </body>
 </html>
